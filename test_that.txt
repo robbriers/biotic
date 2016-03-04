@@ -1,7 +1,0 @@
-testing
-
-
-a <- list(1:10, letters)
-# Passes
-expect_that(str(a), prints_text("List of 2"))
-# Passes
