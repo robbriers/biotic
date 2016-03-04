@@ -1,0 +1,63 @@
+#' Converts families into BMWP composites.
+#' @description Takes a listing of taxa and abundances and combines those
+#' taxa that are represented as composites in the BMWP index to avoid double
+#' counting of scores.
+#'
+#' @param scoretable A dataframe containing the list of scoring taxa and
+#' scores. Composite taxa are defined by entries in the 'Additional' and
+#' 'Grouped' columns.
+#' @param df A dataframe containing list of taxa in first column, followed by
+#'  columns of abundances with sample names in header row.
+#' @return A dataframe with a single entry for any of the BMWP composite taxa.
+#'  Abundances are based on ## or sum##  first of composite family pairs; the second is
+#'  deleted completely.
+
+convertcomposites<-function(scoretable, df){
+
+  # use column index to avoid assumptions over title of column
+  firstrow<-match("Leuctridae", df[,1])
+  secondrow<-match("Capniidae", df[,1])
+  if (!is.null(firstrow)){
+    if (!is.null(secondrow)){
+      df<-df[df[,1]!="Capniidae"]
+    }
+  }
+# repeat for other composites
+# end of function
+}
+
+# new version
+
+# extract composites from BMWPtab
+#composites<-BMWPtab[BMWPtab$Additional!="",]
+# just extract the two relevant columns to make the table smaller
+#composites2<-as.data.frame(cbind.data.frame(composites$Taxon, composites$Additional))
+
+# this is the code to go into the calcindex part
+# keep output same as input for consistency?
+#processed<-apply(composites, 1, findcomposites, samples)
+
+# THIS IS THE START
+#findcomposites<-function(composites, samples){
+   # first param list of composites
+  # 1 to be processed by rows
+  # samples - input to be matched
+  # use column index to avoid assumptions over title of column
+  firstrow<-match(composites[,1], df[,1])
+  secondrow<-match(composites[,2], df[,1])
+  # if both present, delete second from the df
+  # is the second of the pair present?
+  if (!is.null(secondrow)){
+    # if so then if the first is also present, then delete the row
+    if (!is.null(firstrow)){
+      ####### just run this line
+      # this just deletes the second at present
+      df<-df[-firstrow, ]
+   }
+    # otherwise rename the row in the sample data with the first name
+   # don't need to if both taxa in list
+   df[secondrow,1]<-composites[,1]
+  }
+
+# end of function
+}

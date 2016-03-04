@@ -1,0 +1,44 @@
+################ current tests
+
+### based on single sample from sample.csv
+
+data<-read.csv(file.choose(),header=TRUE)
+data
+
+data2<-data[-2]
+data2
+data2<-data2[-3]
+data2
+
+# single sample to run through
+
+test1<-logslice(data2)
+test1
+
+############
+
+# substitute PSI in here in due course
+test1$PSI<-ifelse(test1$class==2, test1$PSI+1, ifelse(test1$class==3, test1$PSI+2, ifelse(test1$class==4, test1$PSI+3, test1$PSI)))
+test1
+
+# calculate PSI index
+#PSI_ABscores<-test1[test1$BMWP>2 & PSIscores$BMWP<8,]
+# real version
+PSI_ABscores<-test1[test1$PSIcat=="A" | test1$PSIcat=="B",]
+PSI_ABscores
+PSI_AB<-sum(PSI_ABscores$PSI, na.rm=TRUE)
+PSI_AB
+PSI_All<-sum(test1$PSI)
+PSI_All
+# real version
+# PSI_All<-sum(PSIscores$PSI)
+
+scorelist<-list((PSI_AB/PSI_All)*100)
+scorelist
+
+# convert returned list back to df
+output<-do.call(rbind, scorelist)
+colnames(output)<-c("PSI")
+output
+
+
