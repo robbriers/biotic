@@ -88,4 +88,3 @@ calcPSI<-function(df, tidy=FALSE){
 calcAWIC<-function(df, tidy=FALSE){
   calcindex(df, index="AWIC", tidy=tidy)
 }
-

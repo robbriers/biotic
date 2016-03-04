@@ -11,6 +11,7 @@
 #' BMWP.
 #' @return A list containing the different components of each score. List
 #' dimensions depend on the index calculated.
+#' @export calcscore
 
 calcscore<-function(abundances, taxonlist, index){
 

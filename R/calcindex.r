@@ -30,6 +30,7 @@
 #' # tidy is not specified as default is used (FALSE)
 #'
 #' calcindex(almond, index="PSI")
+#' @export calcindex
 
 calcindex<-function(df, index="BMWP", tidy=FALSE){
 
