@@ -21,6 +21,7 @@
 #' @return A data frame consisting of columns of indices with samples in rows
 #'  (tidy format). The number of columns returned depends on the index
 #'  selected.
+#' @export calcindex
 #' @examples
 #' # load the built-in River Almond dataset
 #'
@@ -30,7 +31,7 @@
 #' # tidy is not specified as default is used (FALSE)
 #'
 #' calcindex(almond, index="PSI")
-#' @export calcindex
+
 
 calcindex<-function(df, index="BMWP", tidy=FALSE){
 
