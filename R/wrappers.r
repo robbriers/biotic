@@ -48,7 +48,7 @@ calcIntermed<-function(df, tidy=FALSE){
   calcindex(df, index="Intermed", tidy=tidy)
 }
 
-#' Calculates WHPT indices for invertebrate samples.
+#' Calculates presence-only WHPT indices for invertebrate samples.
 #'
 #' @param df A dataframe containing list of taxa in first column, followed by columns of abundances with sample names in header row.
 #' @param tidy Whether the data are in a 'tidy' format (sensu Wickham). The default is FALSE as data are commonly stored as columns as samples rather than rows (with the taxon list in the first column). This is the default format; if set to FALSE the data are transposed prior to processing.
@@ -58,11 +58,22 @@ calcWHPT<-function(df, tidy=FALSE){
   calcindex(df, index="WHPT", tidy=tidy)
 }
 
+#' Calculates abundance-weighted WHPT indices for invertebrate samples.
+#'
+#' @param df A dataframe containing list of taxa in first column, followed by columns of abundances with sample names in header row.
+#' @param tidy Whether the data are in a 'tidy' format (sensu Wickham). The default is FALSE as data are commonly stored as columns as samples rather than rows (with the taxon list in the first column). This is the default format; if set to FALSE the data are transposed prior to processing.
+#' @return A data frame consisting of columns of indices with samples in rows (tidy format).
+
+calcWHPT-AB<-function(df, tidy=FALSE){
+  calcindex(df, index="WHPT-AB", tidy=tidy)
+}
+
 #' Calculates LIFE score indices for invertebrate samples.
 #'
 #' @param df A dataframe containing list of taxa in first column, followed by columns of abundances with sample names in header row.
 #' @param tidy Whether the data are in a 'tidy' format (sensu Wickham). The default is FALSE as data are commonly stored as columns as samples rather than rows (with the taxon list in the first column). This is the default format; if set to FALSE the data are transposed prior to processing.
 #' @return A data frame consisting of columns of indices with samples in rows (tidy format).
+
 
 calcLIFE<-function(df, tidy=FALSE){
   calcindex(df, index="LIFE", tidy=tidy)
