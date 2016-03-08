@@ -16,7 +16,7 @@ setting the \code{tidy} argument to TRUE (see below).}
 \item{index}{A choice of index to be calculated. Defaults to BMWP.
 Options are: \code{"BMWP"}, \code{"Whalley"}, \code{"Riffle"}, \code{"Pool"},
 \code{"Intermed"}, \code{"LIFE"}, \code{"PSI"}, \code{"WHPT"},
-\code{"WHPT-AB"} and \code{"AWIC"}.}
+\code{"WHPT_AB"} and \code{"AWIC"}.}
 
 \item{tidy}{Whether the data are in a 'tidy' format (sensu Wickham). The
 default is FALSE as data are commonly stored as columns as samples rather
