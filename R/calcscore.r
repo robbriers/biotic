@@ -46,7 +46,7 @@ calcscore<-function(abundances, taxonlist, index){
       samplescores<-extractrows(taxapresent, BMWPtab)
       scorelist<-list(sum(samplescores$WHPT, na.rm=TRUE)/sum(!is.na(samplescores$WHPT)), sum(!is.na(samplescores$WHPT)))
     }
-    if (index=="WHPT-AB"){
+    if (index=="WHPT_AB"){
 
       # slice abundance array and extract scores
       WHPTABscores<-logslice(taxapresent)

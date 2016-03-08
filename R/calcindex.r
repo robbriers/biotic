@@ -14,7 +14,7 @@
 #' @param index A choice of index to be calculated. Defaults to BMWP.
 #' Options are: \code{"BMWP"}, \code{"Whalley"}, \code{"Riffle"}, \code{"Pool"},
 #' \code{"Intermed"}, \code{"LIFE"}, \code{"PSI"}, \code{"WHPT"},
-#' \code{"WHPT-AB"} and \code{"AWIC"}.
+#' \code{"WHPT_AB"} and \code{"AWIC"}.
 #' @param tidy Whether the data are in a 'tidy' format (sensu Wickham). The
 #' default is FALSE as data are commonly stored as columns as samples rather
 #' than rows (with the taxon list in the first column). This is the default
@@ -37,7 +37,7 @@
 calcindex<-function(df, index="BMWP", tidy=FALSE){
 
   # check that a correct method has been specified
-  TYPES<-c("BMWP", "Whalley", "Riffle", "Pool", "Intermed", "PSI", "LIFE", "WHPT", "WHPT-AB", "AWIC")
+  TYPES<-c("BMWP", "Whalley", "Riffle", "Pool", "Intermed", "PSI", "LIFE", "WHPT", "WHPT_AB", "AWIC")
   indextype<-pmatch(index, TYPES)
   ind<-TYPES[indextype]
   if (is.na(indextype))
@@ -49,7 +49,7 @@ calcindex<-function(df, index="BMWP", tidy=FALSE){
   #}
 
   # check for BWMP composite families and remove, except for PSI and WHPT
-  if (index!="PSI" | index!="WHPT" | index!="WHPT-AB"){
+  if (index!="PSI" | index!="WHPT" | index!="WHPT_AB"){
 
     # extract composite families from BMWPtab
     composites<-BMWPtab[BMWPtab$Composite!="",]
@@ -108,7 +108,7 @@ calcindex<-function(df, index="BMWP", tidy=FALSE){
   # check whether the data look like presence-absence and warn if calculating abundance-based index
   maxabund<-max(samples,na.rm=TRUE)
   if (maxabund==1){
-    if (index=="PSI" | index=="LIFE" | index=="WHPT-AB"){
+    if (index=="PSI" | index=="LIFE" | index=="WHPT_AB"){
       warning("Maximum abundance in samples is 1. Abundance-weighted indices may not be meaningful")
     }
   }
@@ -148,8 +148,8 @@ calcindex<-function(df, index="BMWP", tidy=FALSE){
   if (index=="WHPT"){
     colnames(output)<-c("WHPT_ASPT", "WHPT_N-taxa")
   }
-  if (index=="WHPT-AB"){
-    colnames(output)<-c("WHPT-AB_ASPT", "WHPT-AB_N-taxa")
+  if (index=="WHPT_AB"){
+    colnames(output)<-c("WHPT_AB_ASPT", "WHPT_AB_N-taxa")
   }
 
   return(output)

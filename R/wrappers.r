@@ -64,8 +64,8 @@ calcWHPT<-function(df, tidy=FALSE){
 #' @param tidy Whether the data are in a 'tidy' format (sensu Wickham). The default is FALSE as data are commonly stored as columns as samples rather than rows (with the taxon list in the first column). This is the default format; if set to FALSE the data are transposed prior to processing.
 #' @return A data frame consisting of columns of indices with samples in rows (tidy format).
 
-calcWHPT-AB<-function(df, tidy=FALSE){
-  calcindex(df, index="WHPT-AB", tidy=tidy)
+calcWHPT_AB<-function(df, tidy=FALSE){
+  calcindex(df, index="WHPT_AB", tidy=tidy)
 }
 
 #' Calculates LIFE score indices for invertebrate samples.
