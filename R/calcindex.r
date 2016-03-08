@@ -2,8 +2,9 @@
 #' @description Calculates a range of freshwater invertebrate biotic indices
 #'  in use in the UK (based on family level identification. Currently
 #'  calculates BMWP (N-taxa and ASPT), Whalley revised BMWP, Whalley habitat
-#'   specific BWMP (riffle, pool and riffle/pool), LIFE, PSI, WHPT and AWIC.  For
-#'   details of these indices see the vignette.
+#'   specific BWMP (riffle, pool and riffle/pool), LIFE, PSI, WHPT (presence
+#'   -absence and abundance-weighted) and AWIC.  For details of these indices
+#'    see the vignette.
 #'
 #' @param df A dataframe containing list of taxa followed by their abundances
 #' in samples, with sample names as headers.  Default format is for taxon
@@ -12,8 +13,8 @@
 #' setting the \code{tidy} argument to TRUE (see below).
 #' @param index A choice of index to be calculated. Defaults to BMWP.
 #' Options are: \code{"BMWP"}, \code{"Whalley"}, \code{"Riffle"}, \code{"Pool"},
-#' \code{"Intermed"}, \code{"LIFE"}, \code{"PSI"}, \code{"WHPT"} and
-#' \code{"AWIC"}.
+#' \code{"Intermed"}, \code{"LIFE"}, \code{"PSI"}, \code{"WHPT"},
+#' \code{"WHPT-AB"} and \code{"AWIC"}.
 #' @param tidy Whether the data are in a 'tidy' format (sensu Wickham). The
 #' default is FALSE as data are commonly stored as columns as samples rather
 #' than rows (with the taxon list in the first column). This is the default
@@ -36,19 +37,19 @@
 calcindex<-function(df, index="BMWP", tidy=FALSE){
 
   # check that a correct method has been specified
-  TYPES<-c("BMWP", "Whalley", "Riffle", "Pool", "Intermed", "PSI", "LIFE", "WHPT", "AWIC")
+  TYPES<-c("BMWP", "Whalley", "Riffle", "Pool", "Intermed", "PSI", "LIFE", "WHPT", "WHPT-AB", "AWIC")
   indextype<-pmatch(index, TYPES)
   ind<-TYPES[indextype]
   if (is.na(indextype))
     stop("invalid index choice")
 
   # if tidy data are are supplied, transpose before calculation
-  if (tidy=="TRUE"){
-    df<-t(df)
-  }
+  #if (tidy=="TRUE"){
+  #  df<-t(df)
+  #}
 
   # check for BWMP composite families and remove, except for PSI and WHPT
-  if (index!="PSI" | index!="WHPT"){
+  if (index!="PSI" | index!="WHPT" | index!="WHPT-AB"){
 
     # extract composite families from BMWPtab
     composites<-BMWPtab[BMWPtab$Composite!="",]
@@ -62,6 +63,40 @@ calcindex<-function(df, index="BMWP", tidy=FALSE){
 
     # remove double counting rows from input df
     df<-df[-rowstodelete, ]
+
+    # also need to check for and combine oligochaete families
+
+    # set up vector of oligochaete taxa
+    families<-c("Lumbricidae", "Enchytraeidae", "Oligochaeta")
+
+    # create logical vector of rows with oligochaetes
+    present<- df[,1] %in% families
+
+    # extract non oligochaete rows
+    rest<-df[!present,]
+
+    # subset rows with worms present
+    worms<-df[present,]
+
+    if (!is.null(worms)){
+      # convert taxon to character for replacement
+      worms[,1]<-as.character(worms[,1])
+
+      # sum abundance across all oligochaetes and add to first row
+      worms[1,-1]<-colSums(worms[,-1],na.rm=TRUE)
+
+      # add taxon string back in
+      worms[1,1]<-"Oligochaeta"
+
+      # convert back to factor
+      worms[,1]<-as.factor(worms[,1])
+
+      # just take first row (sum)
+      worms<-worms[1,]
+
+      # recombine with rest of taxa
+      df<-rbind(rest, worms)
+    }
   }
 
   # separate out sample taxon list
@@ -73,8 +108,8 @@ calcindex<-function(df, index="BMWP", tidy=FALSE){
   # check whether the data look like presence-absence and warn if calculating abundance-based index
   maxabund<-max(samples,na.rm=TRUE)
   if (maxabund==1){
-    if (index=="PSI" | index=="LIFE"){
-      warning("Maximum abundance in samples is 1. Abundance weighted indices may not be meaningful")
+    if (index=="PSI" | index=="LIFE" | index=="WHPT-AB"){
+      warning("Maximum abundance in samples is 1. Abundance-weighted indices may not be meaningful")
     }
   }
 
@@ -112,6 +147,9 @@ calcindex<-function(df, index="BMWP", tidy=FALSE){
   }
   if (index=="WHPT"){
     colnames(output)<-c("WHPT_ASPT", "WHPT_N-taxa")
+  }
+  if (index=="WHPT-AB"){
+    colnames(output)<-c("WHPT-AB_ASPT", "WHPT-AB_N-taxa")
   }
 
   return(output)

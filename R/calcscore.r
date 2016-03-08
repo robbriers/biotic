@@ -11,7 +11,6 @@
 #' BMWP.
 #' @return A list containing the different components of each score. List
 #' dimensions depend on the index calculated.
-#' @export calcscore
 
 calcscore<-function(abundances, taxonlist, index){
 
@@ -47,7 +46,26 @@ calcscore<-function(abundances, taxonlist, index){
       samplescores<-extractrows(taxapresent, BMWPtab)
       scorelist<-list(sum(samplescores$WHPT, na.rm=TRUE)/sum(!is.na(samplescores$WHPT)), sum(!is.na(samplescores$WHPT)))
     }
+    if (index=="WHPT-AB"){
 
+      # slice abundance array and extract scores
+      WHPTABscores<-logslice(taxapresent)
+
+      # divide array based on abundance class
+      WHPTclass1<-WHPTABscores[WHPTABscores$class ==1,]
+      WHPTclass2<-WHPTABscores[WHPTABscores$class ==2,]
+      WHPTclass3<-WHPTABscores[WHPTABscores$class ==3,]
+      WHPTclass4<-WHPTABscores[WHPTABscores$class ==4,]
+
+      # extract scores from relevant columns
+      WHPTscore1<-sum(WHPTclass1$WHPT_AB1, na.rm=TRUE)
+      WHPTscore2<-sum(WHPTclass1$WHPT_AB2, na.rm=TRUE)
+      WHPTscore3<-sum(WHPTclass1$WHPT_AB3, na.rm=TRUE)
+      WHPTscore4<-sum(WHPTclass1$WHPT_AB4, na.rm=TRUE)
+
+      # calculate index (ASPT and N-taxa)
+      scorelist<-list(sum(WHPTscore1, WHPTscore2, WHPTscore3, WHPTscore4)/sum(!is.na(WHPTABscores$WHPT_AB1)), sum(!is.na(WHPTABscores$WHPT_AB1)))
+    }
     if (index=="AWIC"){
       samplescores<-extractrows(taxapresent, BMWPtab)
       scorelist<-list( sum(samplescores$AWIC, na.rm=TRUE) / sum(!is.na(samplescores$AWIC)))
