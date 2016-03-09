@@ -82,9 +82,11 @@ calcindex<-function(df, index="BMWP", tidy=FALSE){
       # convert taxon to character for replacement
       worms[,1]<-as.character(worms[,1])
 
+      # if there is more than one row of worms
+      if(nrow(worms)>1){
       # sum abundance across all oligochaetes and add to first row
       worms[1,-1]<-colSums(worms[,-1],na.rm=TRUE)
-
+      }
       # add taxon string back in
       worms[1,1]<-"Oligochaeta"
 
@@ -113,12 +115,27 @@ calcindex<-function(df, index="BMWP", tidy=FALSE){
     }
   }
 
-  # run through columns and calculate scores
-  # need to check here how it deals with single sample data
-  output<-apply(samples, 2, calcscore, taxonlist=taxonlist, index=index)
+  # if only one sample present, need to process differently
+  if (ncol(df)==2){
 
-  # convert returned list back to df
+    # calculate scores
+    output<-calcscore(samples, taxonlist=taxonlist, index=index)
+
+    # transpose output
+    output<-t(output)
+
+    # add on sample name to row
+    row.names(output)<-names(df[2])
+  }
+  # if there is more than one sample, apply across columns
+  else{
+    output<-apply(samples, 2, calcscore, taxonlist=taxonlist, index=index)
+  }
+
+  # only need to bind rows for multiple samples
+  if (ncol(df)>2){
   output<-do.call(rbind, output)
+  }
 
   # add column names depending on index
   if (index=="BMWP"){
