@@ -3,4 +3,4 @@
 
 
 ### Repository for the development of the biotic package for R.
-This package allows you to calculate a range of UK freshwater invertebrate biotic indices. This is still under development; most functions currently work but still need to add in Oligochaete grouping, complete tests and draft vignette. Documentation also needs updating
+This package allows you to calculate a range of UK freshwater invertebrate biotic indices. This is still under development; core functions are working but I need to complete unit tests and draft vignette.
