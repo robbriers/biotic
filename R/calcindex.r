@@ -3,7 +3,7 @@
 #'  in use in the UK (based on family level identification. Currently
 #'  calculates BMWP (N-taxa and ASPT), Whalley revised BMWP, Whalley habitat
 #'   specific BWMP (riffle, pool and riffle/pool), LIFE, PSI, WHPT (presence
-#'   -absence and abundance-weighted) and AWIC.  For details of these indices
+#'  -absence and abundance-weighted) and AWIC.  For details of these indices
 #'    see the vignette.
 #'
 #' @param df A dataframe containing list of taxa followed by their abundances
@@ -11,9 +11,9 @@
 #' names to be in the first column and sample abundances in subsequent
 #' columns, but data can also be processed in the transposed layout by
 #' setting the \code{tidy} argument to TRUE (see below).
-#' @param index A choice of index to be calculated. Defaults to BMWP.
-#' Options are: \code{"BMWP"}, \code{"Whalley"}, \code{"Riffle"}, \code{"Pool"},
-#' \code{"RiffPool"}, \code{"LIFE"}, \code{"PSI"}, \code{"WHPT"},
+#' @param index A choice of index to be calculated. Defaults to \code{"BMWP"}.
+#' Options are: \code{"BMWP"}, \code{"Whalley"}, \code{"Riffle"}, \code{"Pool"}
+#' ,\code{"RiffPool"}, \code{"LIFE"}, \code{"PSI"}, \code{"WHPT"},
 #' \code{"WHPT_AB"} and \code{"AWIC"}.
 #' @param tidy Whether the data are in a 'tidy' format (sensu Wickham). The
 #' default is FALSE as data are commonly stored as columns as samples rather

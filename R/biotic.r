@@ -1,8 +1,8 @@
 #' biotic: A package for calculating a range of UK freshwater invertebrate
 #' biotic indices.
 #'
-#' The biotic package provides a main function, wrappers functions for
-#' easy calculation of specific indices and a data processing function
+#' The biotic package provides a main function, wrapper functions for
+#' easy calculation of specific indices and a data transposition function
 #' which is called internally when needed, but may be of use more
 #' generally
 #'
