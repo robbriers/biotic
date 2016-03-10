@@ -1,12 +1,12 @@
 Package: biotic
 Type: Package
 Title: Calculation of Biotic Indices
-Version: 0.1.1.9060
-Date: 2016-03-04
+Version: 0.1.1.9120
+Date: 2016-03-10
 Author: Dr Rob Briers
 Maintainer: Dr Rob Briers <r.briers@napier.ac.uk>
 Description: Calculates a range of UK freshwater invertebrate biotic indices
-    including BMWP, Whalley, WHPT, Habitat specific BMWP, AWIC, LIFE and PSI.
+    including BMWP, Whalley, WHPT, Habitat-specific BMWP, AWIC, LIFE and PSI.
 License: GPL-3
 LazyData: TRUE
 Suggests:

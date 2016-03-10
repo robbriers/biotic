@@ -38,9 +38,9 @@ calcscore<-function(abundances, taxonlist, index){
       samplescores<-extractrows(taxapresent, BMWPtab)
       scorelist<-list(sum(samplescores$Pool, na.rm=TRUE), sum(!is.na(samplescores$Pool)), round(sum(samplescores$Pool, na.rm=TRUE)/sum(!is.na(samplescores$Pool)),2))
     }
-    if (index=="Intermed"){
+    if (index=="RiffPool"){
       samplescores<-extractrows(taxapresent, BMWPtab)
-      scorelist<-list(sum(samplescores$Intermed, na.rm=TRUE), sum(!is.na(samplescores$Intermed)), round(sum(samplescores$Intermed, na.rm=TRUE)/sum(!is.na(samplescores$Intermed)),2))
+      scorelist<-list(sum(samplescores$RiffPool, na.rm=TRUE), sum(!is.na(samplescores$RiffPool)), round(sum(samplescores$RiffPool, na.rm=TRUE)/sum(!is.na(samplescores$RiffPool)),2))
    }
     if (index=="WHPT"){
       samplescores<-extractrows(taxapresent, BMWPtab)
@@ -105,7 +105,7 @@ calcscore<-function(abundances, taxonlist, index){
       LIFEscores<-rbind(LIFEabove7, LIFE7, LIFEbelow7)
 
       # calculate LIFE index (sum/n)
-      scorelist<-list(round(sum(LIFEscores$LIFE, na.rm=TRUE)/sum(!is.na(LIFEscores$LIFE))),2)
+      scorelist<-list(round(sum(LIFEscores$LIFE, na.rm=TRUE)/sum(!is.na(LIFEscores$LIFE)),2))
     }
   return(scorelist)
   # this closes the nrows loop

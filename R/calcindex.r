@@ -13,7 +13,7 @@
 #' setting the \code{tidy} argument to TRUE (see below).
 #' @param index A choice of index to be calculated. Defaults to BMWP.
 #' Options are: \code{"BMWP"}, \code{"Whalley"}, \code{"Riffle"}, \code{"Pool"},
-#' \code{"Intermed"}, \code{"LIFE"}, \code{"PSI"}, \code{"WHPT"},
+#' \code{"RiffPool"}, \code{"LIFE"}, \code{"PSI"}, \code{"WHPT"},
 #' \code{"WHPT_AB"} and \code{"AWIC"}.
 #' @param tidy Whether the data are in a 'tidy' format (sensu Wickham). The
 #' default is FALSE as data are commonly stored as columns as samples rather
@@ -37,16 +37,16 @@
 calcindex<-function(df, index="BMWP", tidy=FALSE){
 
   # check that a correct method has been specified
-  TYPES<-c("BMWP", "Whalley", "Riffle", "Pool", "Intermed", "PSI", "LIFE", "WHPT", "WHPT_AB", "AWIC")
+  TYPES<-c("BMWP", "Whalley", "Riffle", "Pool", "RiffPool", "PSI", "LIFE", "WHPT", "WHPT_AB", "AWIC")
   indextype<-pmatch(index, TYPES)
   ind<-TYPES[indextype]
   if (is.na(indextype))
     stop("invalid index choice")
 
   # if tidy data are are supplied, transpose before calculation
-  #if (tidy=="TRUE"){
-  #  df<-t(df)
-  #}
+  if (tidy=="TRUE"){
+    df<-transposedata(df)
+  }
 
   # check for BWMP composite families and remove, except for PSI and WHPT
   if (index!="PSI" | index!="WHPT" | index!="WHPT_AB"){
@@ -150,8 +150,8 @@ calcindex<-function(df, index="BMWP", tidy=FALSE){
   if (index=="Pool"){
     colnames(output)<-c("Pool_BMWP", "Pool_N-taxa", "Pool_ASPT")
   }
-  if (index=="Intermed"){
-    colnames(output)<-c("Intermed_BMWP", "Intermed_N-taxa", "Intermed_ASPT")
+  if (index=="RiffPool"){
+    colnames(output)<-c("RiffPool_BMWP", "RiffPool_N-taxa", "RiffPool_ASPT")
   }
   if (index=="LIFE"){
     colnames(output)<-c("LIFE")
