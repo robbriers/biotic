@@ -62,8 +62,10 @@ calcindex<-function(df, index="BMWP", tidy=FALSE){
     # remove NAs from vector
     rowstodelete<-na.omit(rowstodelete)
 
-    # remove double counting rows from input df
-    df<-df[-rowstodelete, ]
+    # remove double counting rows from input df if there are any
+    if (length(rowstodelete)>0){
+      df<-df[-rowstodelete, ]
+    }
 
     # also need to check for and combine oligochaete families
 

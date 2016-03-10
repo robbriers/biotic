@@ -17,20 +17,16 @@ findcomposites<-function(composites, df){
   firstrow<-match(composites[1], df[,1])
   secondrow<-match(composites[2], df[,1])
   # is the second of the pair present?
-  if (!is.null(secondrow)){
+  if (!is.na(secondrow)){
     # if so then if the first is also present, then need to delete the row
-    if (!is.null(firstrow)){
-      remove<-firstrow
+    if (!is.na(firstrow)){
+      rowforremoval<-firstrow
     }
   }
-  return(remove)
-
-  # add in Oligochaeta and Chironomidae - this might be better outside
-  # is Oligochaeta present in taxon list
-  #  if (is.null(match("Oligochaeta", df[,1]))){
-  #
-  #  }
-
+  else{
+    rowforremoval<-NA
+  }
+  return(rowforremoval)
   # end of function
 }
 
