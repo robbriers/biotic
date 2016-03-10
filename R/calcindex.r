@@ -168,6 +168,6 @@ calcindex<-function(df, index="BMWP", tidy=FALSE){
   if (index=="WHPT_AB"){
     colnames(output)<-c("WHPT_AB_ASPT", "WHPT_AB_N-taxa")
   }
-
+  output<-as.data.frame(output)
   return(output)
 }

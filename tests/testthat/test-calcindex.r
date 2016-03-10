@@ -7,8 +7,8 @@ test_that("calcindex returns a dataframe", {
 
   # calculate the BMWP index (default) for this dataset
   testindex<-calcindex(almond)
-  # check that it outputs matrix object
-  expect_is(testindex, "matrix")
+  # check that it outputs a dataframe object
+  expect_is(testindex, "tbl_df")
 
 })
 
