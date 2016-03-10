@@ -1,16 +1,16 @@
-#' Calculates biotic index scores for individual samples.
-#' @description Calculates chosen biotic index on individual samples,
-#' based on vectors of abundances and taxon names passed as arguments.
-#'
-#' @param abundances An integer vector representing the abundances of taxa
-#' in a sample. Absences should be represented as \code{NA} rather than
-#' zero values but it will process data with zeros.
-#' @param taxonlist A string vector containing taxon names (family level)
-#' present in all the samples being analysed.
-#' @param index A string representing the choice of index value. Defaults to
-#' BMWP.
-#' @return A list containing the different components of each score. List
-#' dimensions depend on the index calculated.
+# Calculates biotic index scores for individual samples.
+# @description Calculates chosen biotic index on individual samples,
+# based on vectors of abundances and taxon names passed as arguments.
+#
+# @param abundances An integer vector representing the abundances of taxa
+# in a sample. Absences should be represented as \code{NA} rather than
+# zero values but it will process data with zeros.
+# @param taxonlist A string vector containing taxon names (family level)
+# present in all the samples being analysed.
+# @param index A string representing the choice of index value. Defaults to
+# BMWP.
+# @return A list containing the different components of each score. List
+# dimensions depend on the index calculated.
 
 calcscore<-function(abundances, taxonlist, index){
 

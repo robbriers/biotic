@@ -18,7 +18,8 @@
 #' @param tidy Whether the data are in a 'tidy' format (sensu Wickham). The
 #' default is FALSE as data are commonly stored as columns as samples rather
 #' than rows (with the taxon list in the first column). This is the default
-#' format; if set to FALSE the data are transposed prior to processing.
+#' format; if set to TRUE the data are transposed prior to processing using
+#'  the internal \code{\link{transposedata}} function.
 #' @return A data frame consisting of columns of indices with samples in rows
 #'  (tidy format). The number of columns returned depends on the index
 #'  selected.

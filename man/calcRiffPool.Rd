@@ -2,19 +2,27 @@
 % Please edit documentation in R/wrappers.r
 \name{calcRiffPool}
 \alias{calcRiffPool}
-\title{Calculates Whalley 'Riffle/Pool' habitat specific BMWP indices for invertebrate samples.}
+\title{Calculates Whalley 'Riffle/Pool' habitat specific BMWP indices for
+invertebrate samples.}
 \usage{
 calcRiffPool(df, tidy = FALSE)
 }
 \arguments{
-\item{df}{A dataframe containing list of taxa in first column, followed by columns of abundances with sample names in header row.}
+\item{df}{A dataframe containing list of taxa in first column, followed by
+columns of abundances with sample names in header row.}
 
-\item{tidy}{Whether the data are in a 'tidy' format (sensu Wickham). The default is FALSE as data are commonly stored as columns as samples rather than rows (with the taxon list in the first column). This is the default format; if set to FALSE the data are transposed prior to processing.}
+\item{tidy}{Whether the data are in a 'tidy' format (sensu Wickham). The
+default is FALSE as data are commonly stored as columns as samples rather
+than rows (with the taxon list in the first column). This is the default
+ format; if set to TRUE the data are transposed prior to processing using
+ the internal \code{\link{transposedata}} function.}
 }
 \value{
-A data frame consisting of columns of indices with samples in rows (tidy format).
+A data frame consisting of columns of indices with samples in
+rows (tidy format).
 }
 \description{
-Calculates Whalley 'Riffle/Pool' habitat specific BMWP indices for invertebrate samples.
+Calculates Whalley 'Riffle/Pool' habitat specific BMWP indices for
+invertebrate samples.
 }
 
