@@ -70,7 +70,7 @@ calcindex<-function(df, index="BMWP", tidy=FALSE){
     # also need to check for and combine oligochaete families
 
     # set up vector of oligochaete taxa
-    families<-c("Lumbricidae", "Enchytraeidae", "Oligochaeta")
+    families<-c("Lumbricidae", "Lumbriculidae", "Enchytraeidae", "Oligochaeta")
 
     # create logical vector of rows with oligochaetes
     present<- df[,1] %in% families
