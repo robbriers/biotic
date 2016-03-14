@@ -143,19 +143,19 @@ calcindex<-function(df, index="BMWP", tidy=FALSE){
 
   # add column names depending on index
   if (index=="BMWP"){
-    colnames(output)<-c("BMWP", "N-taxa", "ASPT")
+    colnames(output)<-c("BMWP", "Ntaxa", "ASPT")
   }
   if (index=="Whalley"){
-    colnames(output)<-c("Whalley_BMWP", "Whalley_N-taxa", "Whalley_ASPT")
+    colnames(output)<-c("Whalley_BMWP", "Whalley_Ntaxa", "Whalley_ASPT")
   }
   if (index=="Riffle"){
-    colnames(output)<-c("Riffle_BMWP", "Riffle_N-taxa", "Riffle_ASPT")
+    colnames(output)<-c("Riffle_BMWP", "Riffle_Ntaxa", "Riffle_ASPT")
   }
   if (index=="Pool"){
-    colnames(output)<-c("Pool_BMWP", "Pool_N-taxa", "Pool_ASPT")
+    colnames(output)<-c("Pool_BMWP", "Pool_Ntaxa", "Pool_ASPT")
   }
   if (index=="RiffPool"){
-    colnames(output)<-c("RiffPool_BMWP", "RiffPool_N-taxa", "RiffPool_ASPT")
+    colnames(output)<-c("RiffPool_BMWP", "RiffPool_Ntaxa", "RiffPool_ASPT")
   }
   if (index=="LIFE"){
     colnames(output)<-c("LIFE")
@@ -167,10 +167,10 @@ calcindex<-function(df, index="BMWP", tidy=FALSE){
     colnames(output)<-c("AWIC")
   }
   if (index=="WHPT"){
-    colnames(output)<-c("WHPT_ASPT", "WHPT_N-taxa")
+    colnames(output)<-c("WHPT_ASPT", "WHPT_Ntaxa")
   }
   if (index=="WHPT_AB"){
-    colnames(output)<-c("WHPT_AB_ASPT", "WHPT_AB_N-taxa")
+    colnames(output)<-c("WHPT_AB_ASPT", "WHPT_AB_Ntaxa")
   }
 
   # add on sample identifier column and set row names to null
