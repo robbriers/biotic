@@ -20,6 +20,25 @@ calcscore<-function(abundances, taxonlist, index){
   # find rows where taxa are present (>0 abundance)
   taxapresent<-sampledata[sampledata[,2] > 0,]
 
+  # check for BWMP composite families and remove, except for PSI and WHPT
+  if (index!="PSI" | index!="WHPT" | index!="WHPT_AB"){
+
+    # extract composite families from BMWPtab
+    composites<-BMWPtab[BMWPtab$Composite!="",]
+    composites<-as.data.frame(cbind.data.frame(composites$Taxon, composites$Composite))
+
+    # locate any rows to delete
+    rowstodelete<-apply(composites, 1, findcomposites, df=taxapresent)
+
+    # remove NAs from vector
+    rowstodelete<-na.omit(rowstodelete)
+
+    # remove double counting rows from taxapresent if there are any
+    if (length(rowstodelete)>0){
+      taxapresent<-taxapresent[-rowstodelete, ]
+    }
+  }
+
   # check that there are any taxa present in the sample, then extract scores
   if (nrow(taxapresent)!=0){
     if (index=="BMWP"){

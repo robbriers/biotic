@@ -49,25 +49,8 @@ calcindex<-function(df, index="BMWP", tidy=FALSE){
     df<-transposedata(df)
   }
 
-  # check for BWMP composite families and remove, except for PSI and WHPT
+  # check for and combine oligochaete families, except for PSI and WHPT
   if (index!="PSI" | index!="WHPT" | index!="WHPT_AB"){
-
-    # extract composite families from BMWPtab
-    composites<-BMWPtab[BMWPtab$Composite!="",]
-    composites<-as.data.frame(cbind.data.frame(composites$Taxon, composites$Composite))
-
-    # locate any rows to delete
-    rowstodelete<-apply(composites, 1, findcomposites, df=df)
-
-    # remove NAs from vector
-    rowstodelete<-na.omit(rowstodelete)
-
-    # remove double counting rows from input df if there are any
-    if (length(rowstodelete)>0){
-      df<-df[-rowstodelete, ]
-    }
-
-    # also need to check for and combine oligochaete families
 
     # set up vector of oligochaete taxa
     families<-c("Lumbricidae", "Lumbriculidae", "Enchytraeidae", "Oligochaeta")

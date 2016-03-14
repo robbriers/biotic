@@ -16,14 +16,17 @@ findcomposites<-function(composites, df){
   # assumptions over title of column
   firstrow<-match(composites[1], df[,1])
   secondrow<-match(composites[2], df[,1])
+
   # is the second of the pair present?
   if (!is.na(secondrow)){
+
     # if so then if the first is also present, then need to delete the row
     if (!is.na(firstrow)){
       rowforremoval<-firstrow
-    }
-  }
-  else{
+    } else {
+      rowforremoval<-NA
+      }
+  } else {
     rowforremoval<-NA
   }
   return(rowforremoval)
