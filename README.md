@@ -147,7 +147,7 @@ The package is still in the development phase.  It has been tested fairly extens
 
 ### Sources of information about the indices calculated
 
-BMWP, Whalley Revised BMWP and Habitat-specific scores were taken from the table given [here](www.cies.staffs.ac.uk/bmwptabl.htm).
+BMWP, Whalley Revised BMWP and Habitat-specific scores were taken from the table given [here](http://www.cies.staffs.ac.uk/bmwptabl.htm).
 
 The derivation and history of the BMWP score is described in [Hawkes, H.A. (1998)](http://dx.doi.org/10.1016/S0043-1354(97)00275-3) Origin and development of the Biological Monitoring Working Party (BMWP) score system. *Water Research* **32**, 964-968. Details of the revised scores are given in [Walley W.J. &  Hawkes H.A. (1997)](http://dx.doi.org/10.1016/S0043-1354(96)00249-7) A computer-based development of the Biological Monitoring Working Party score system incorporating abundance rating, biotope type and indicator value. *Water Research*, **31**, 201-210.
 
