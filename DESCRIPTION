@@ -1,8 +1,8 @@
 Package: biotic
 Type: Package
 Title: Calculation of Biotic Indices
-Version: 0.1.1.9120
-Date: 2016-03-10
+Version: 0.1.1.9132
+Date: 2016-03-14
 Author: Dr Rob Briers
 Maintainer: Dr Rob Briers <r.briers@napier.ac.uk>
 Description: Calculates a range of UK freshwater invertebrate biotic indices

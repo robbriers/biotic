@@ -23,8 +23,8 @@ calcscore<-function(abundances, taxonlist, index){
   # check for BWMP composite families and remove, except for PSI and WHPT
   if (index!="PSI" | index!="WHPT" | index!="WHPT_AB"){
 
-    # extract composite families from BMWPtab
-    composites<-BMWPtab[BMWPtab$Composite!="",]
+    # extract composite families from indextable
+    composites<-indextable[indextable$Composite!="",]
     composites<-as.data.frame(cbind.data.frame(composites$Taxon, composites$Composite))
 
     # locate any rows to delete
@@ -42,27 +42,27 @@ calcscore<-function(abundances, taxonlist, index){
   # check that there are any taxa present in the sample, then extract scores
   if (nrow(taxapresent)!=0){
     if (index=="BMWP"){
-      samplescores<-extractrows(taxapresent, BMWPtab)
+      samplescores<-extractrows(taxapresent, indextable)
       scorelist<-c(sum(samplescores$BMWP, na.rm=TRUE), sum(!is.na(samplescores$BMWP)), round(sum(samplescores$BMWP, na.rm=TRUE)/sum(!is.na(samplescores$BMWP)),2))
     }
     if (index=="Whalley"){
-      samplescores<-extractrows(taxapresent, BMWPtab)
+      samplescores<-extractrows(taxapresent, indextable)
       scorelist<-c(sum(samplescores$Whalley, na.rm=TRUE), sum(!is.na(samplescores$Whalley)), round(sum(samplescores$Whalley, na.rm=TRUE)/sum(!is.na(samplescores$Whalley)),2))
     }
     if (index=="Riffle"){
-      samplescores<-extractrows(taxapresent, BMWPtab)
+      samplescores<-extractrows(taxapresent, indextable)
       scorelist<-c(sum(samplescores$Riffle, na.rm=TRUE), sum(!is.na(samplescores$Riffle)), round(sum(samplescores$Riffle, na.rm=TRUE)/sum(!is.na(samplescores$Riffle)),2))
     }
     if (index=="Pool"){
-      samplescores<-extractrows(taxapresent, BMWPtab)
+      samplescores<-extractrows(taxapresent, indextable)
       scorelist<-c(sum(samplescores$Pool, na.rm=TRUE), sum(!is.na(samplescores$Pool)), round(sum(samplescores$Pool, na.rm=TRUE)/sum(!is.na(samplescores$Pool)),2))
     }
     if (index=="RiffPool"){
-      samplescores<-extractrows(taxapresent, BMWPtab)
+      samplescores<-extractrows(taxapresent, indextable)
       scorelist<-c(sum(samplescores$RiffPool, na.rm=TRUE), sum(!is.na(samplescores$RiffPool)), round(sum(samplescores$RiffPool, na.rm=TRUE)/sum(!is.na(samplescores$RiffPool)),2))
    }
     if (index=="WHPT"){
-      samplescores<-extractrows(taxapresent, BMWPtab)
+      samplescores<-extractrows(taxapresent, indextable)
       scorelist<-c(round(sum(samplescores$WHPT, na.rm=TRUE)/sum(!is.na(samplescores$WHPT)),2), sum(!is.na(samplescores$WHPT)))
     }
     if (index=="WHPT_AB"){
@@ -86,7 +86,7 @@ calcscore<-function(abundances, taxonlist, index){
       scorelist<-c(round(sum(WHPTscore1, WHPTscore2, WHPTscore3, WHPTscore4)/sum(!is.na(WHPTABscores$WHPT_AB1)),2), sum(!is.na(WHPTABscores$WHPT_AB1)))
     }
     if (index=="AWIC"){
-      samplescores<-extractrows(taxapresent, BMWPtab)
+      samplescores<-extractrows(taxapresent, indextable)
       scorelist<-c( round(sum(samplescores$AWIC, na.rm=TRUE) / sum(!is.na(samplescores$AWIC)),2))
       }
 

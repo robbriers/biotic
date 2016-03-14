@@ -70,22 +70,22 @@ extractrows<-function(df, indextable){
 logslice<-function(df){
   # 1-9 abundance
   logclass1<-df[df[,2]>0 & df[,2]<10,]
-  log1scores<-extractrows(logclass1, BMWPtab)
+  log1scores<-extractrows(logclass1, indextable)
   log1scores$class<-rep(1, times=nrow(log1scores))
 
   # 10-99 abundance
   logclass2<-df[df[,2]>9 & df[,2]<100,]
-  log2scores<-extractrows(logclass2, BMWPtab)
+  log2scores<-extractrows(logclass2, indextable)
   log2scores$class<-rep(2, times=nrow(log2scores))
 
   # 100-999 abundance
   logclass3<-df[df[,2]>99 & df[,2]<1000,]
-  log3scores<-extractrows(logclass3, BMWPtab)
+  log3scores<-extractrows(logclass3, indextable)
   log3scores$class<-rep(3, times=nrow(log3scores))
 
   # 1000+ abundance
   logclass4<-df[df[,2]>999,]
-  log4scores<-extractrows(logclass4, BMWPtab)
+  log4scores<-extractrows(logclass4, indextable)
   log4scores$class<-rep(4, times=nrow(log4scores))
   sliced<-list(log1scores, log2scores, log3scores, log4scores)
   sliced<-do.call(rbind, sliced)
