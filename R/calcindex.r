@@ -137,7 +137,8 @@ calcindex<-function(df, index="BMWP", tidy=FALSE){
 
   # only need to bind rows for multiple samples
   if (ncol(df)>2){
-  output<-do.call(rbind, output)
+    output<-rbind(output)
+    output<-t(output)
   }
 
   # add column names depending on index
@@ -171,6 +172,11 @@ calcindex<-function(df, index="BMWP", tidy=FALSE){
   if (index=="WHPT_AB"){
     colnames(output)<-c("WHPT_AB_ASPT", "WHPT_AB_N-taxa")
   }
-  output<-as.data.frame(output)
+
+  # add on sample identifier column and set row names to null
+  output<-as.data.frame(cbind.data.frame(row.names(output), output))
+  row.names(output)<-NULL
+  colnames(output)[1]<-"Sample"
+
   return(output)
 }

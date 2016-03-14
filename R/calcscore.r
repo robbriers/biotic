@@ -24,27 +24,27 @@ calcscore<-function(abundances, taxonlist, index){
   if (nrow(taxapresent)!=0){
     if (index=="BMWP"){
       samplescores<-extractrows(taxapresent, BMWPtab)
-      scorelist<-list(sum(samplescores$BMWP, na.rm=TRUE), sum(!is.na(samplescores$BMWP)), round(sum(samplescores$BMWP, na.rm=TRUE)/sum(!is.na(samplescores$BMWP)),2))
+      scorelist<-c(sum(samplescores$BMWP, na.rm=TRUE), sum(!is.na(samplescores$BMWP)), round(sum(samplescores$BMWP, na.rm=TRUE)/sum(!is.na(samplescores$BMWP)),2))
     }
     if (index=="Whalley"){
       samplescores<-extractrows(taxapresent, BMWPtab)
-      scorelist<-list(sum(samplescores$Whalley, na.rm=TRUE), sum(!is.na(samplescores$Whalley)), round(sum(samplescores$Whalley, na.rm=TRUE)/sum(!is.na(samplescores$Whalley)),2))
+      scorelist<-c(sum(samplescores$Whalley, na.rm=TRUE), sum(!is.na(samplescores$Whalley)), round(sum(samplescores$Whalley, na.rm=TRUE)/sum(!is.na(samplescores$Whalley)),2))
     }
     if (index=="Riffle"){
       samplescores<-extractrows(taxapresent, BMWPtab)
-      scorelist<-list(sum(samplescores$Riffle, na.rm=TRUE), sum(!is.na(samplescores$Riffle)), round(sum(samplescores$Riffle, na.rm=TRUE)/sum(!is.na(samplescores$Riffle)),2))
+      scorelist<-c(sum(samplescores$Riffle, na.rm=TRUE), sum(!is.na(samplescores$Riffle)), round(sum(samplescores$Riffle, na.rm=TRUE)/sum(!is.na(samplescores$Riffle)),2))
     }
     if (index=="Pool"){
       samplescores<-extractrows(taxapresent, BMWPtab)
-      scorelist<-list(sum(samplescores$Pool, na.rm=TRUE), sum(!is.na(samplescores$Pool)), round(sum(samplescores$Pool, na.rm=TRUE)/sum(!is.na(samplescores$Pool)),2))
+      scorelist<-c(sum(samplescores$Pool, na.rm=TRUE), sum(!is.na(samplescores$Pool)), round(sum(samplescores$Pool, na.rm=TRUE)/sum(!is.na(samplescores$Pool)),2))
     }
     if (index=="RiffPool"){
       samplescores<-extractrows(taxapresent, BMWPtab)
-      scorelist<-list(sum(samplescores$RiffPool, na.rm=TRUE), sum(!is.na(samplescores$RiffPool)), round(sum(samplescores$RiffPool, na.rm=TRUE)/sum(!is.na(samplescores$RiffPool)),2))
+      scorelist<-c(sum(samplescores$RiffPool, na.rm=TRUE), sum(!is.na(samplescores$RiffPool)), round(sum(samplescores$RiffPool, na.rm=TRUE)/sum(!is.na(samplescores$RiffPool)),2))
    }
     if (index=="WHPT"){
       samplescores<-extractrows(taxapresent, BMWPtab)
-      scorelist<-list(round(sum(samplescores$WHPT, na.rm=TRUE)/sum(!is.na(samplescores$WHPT)),2), sum(!is.na(samplescores$WHPT)))
+      scorelist<-c(round(sum(samplescores$WHPT, na.rm=TRUE)/sum(!is.na(samplescores$WHPT)),2), sum(!is.na(samplescores$WHPT)))
     }
     if (index=="WHPT_AB"){
 
@@ -64,11 +64,11 @@ calcscore<-function(abundances, taxonlist, index){
       WHPTscore4<-sum(WHPTclass1$WHPT_AB4, na.rm=TRUE)
 
       # calculate index (ASPT and N-taxa)
-      scorelist<-list(round(sum(WHPTscore1, WHPTscore2, WHPTscore3, WHPTscore4)/sum(!is.na(WHPTABscores$WHPT_AB1)),2), sum(!is.na(WHPTABscores$WHPT_AB1)))
+      scorelist<-c(round(sum(WHPTscore1, WHPTscore2, WHPTscore3, WHPTscore4)/sum(!is.na(WHPTABscores$WHPT_AB1)),2), sum(!is.na(WHPTABscores$WHPT_AB1)))
     }
     if (index=="AWIC"){
       samplescores<-extractrows(taxapresent, BMWPtab)
-      scorelist<-list( round(sum(samplescores$AWIC, na.rm=TRUE) / sum(!is.na(samplescores$AWIC)),2))
+      scorelist<-c( round(sum(samplescores$AWIC, na.rm=TRUE) / sum(!is.na(samplescores$AWIC)),2))
       }
 
     if (index=="PSI"){
@@ -84,7 +84,7 @@ calcscore<-function(abundances, taxonlist, index){
       PSI_AB<-sum(PSI_ABscores$PSI, na.rm=TRUE)
       PSI_All<-sum(PSIscores$PSI, na.rm=TRUE)
 
-      scorelist<-list(round((PSI_AB/PSI_All)*100,2))
+      scorelist<-c(round((PSI_AB/PSI_All)*100,2))
     }
     if (index=="LIFE"){
       # LIFE calculation
@@ -105,7 +105,7 @@ calcscore<-function(abundances, taxonlist, index){
       LIFEscores<-rbind(LIFEabove7, LIFE7, LIFEbelow7)
 
       # calculate LIFE index (sum/n)
-      scorelist<-list(round(sum(LIFEscores$LIFE, na.rm=TRUE)/sum(!is.na(LIFEscores$LIFE)),2))
+      scorelist<-c(round(sum(LIFEscores$LIFE, na.rm=TRUE)/sum(!is.na(LIFEscores$LIFE)),2))
     }
   return(scorelist)
   # this closes the nrows loop
