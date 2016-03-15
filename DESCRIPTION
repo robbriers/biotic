@@ -5,7 +5,7 @@ Version: 0.1.1.9134
 Date: 2016-03-14
 Author: Dr Rob Briers
 Maintainer: Dr Rob Briers <r.briers@napier.ac.uk>
-Depends: R (>=3.2.0)
+Depends: R (>=3.0.2)
 Description: Calculates a range of UK freshwater invertebrate biotic indices
     including BMWP, Whalley, WHPT, Habitat-specific BMWP, AWIC, LIFE and PSI.
 License: GPL-3
