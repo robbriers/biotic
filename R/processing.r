@@ -103,12 +103,20 @@ logslice<-function(df){
 #' @export transposedata
 
 transposedata<-function(df){
+
   rowlabs<-df[,1]
+
   collabs<-names(df)
+
   df_t<-as.data.frame(t(df[,-1]))
+
   names(df_t)<-rowlabs
+
   df_t<-cbind(as.factor(collabs[-1]), df_t)
+
   row.names(df_t)<-NULL
+
   names(df_t)[1]<-""
+
   return(df_t)
 }

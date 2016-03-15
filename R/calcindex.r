@@ -50,7 +50,7 @@ calcindex<-function(df, index="BMWP", tidy=FALSE){
   }
 
   # check for and combine oligochaete families, except for PSI and WHPT
-  if (index!="PSI" | index!="WHPT" | index!="WHPT_AB"){
+  if (index!="PSI" || index!="WHPT" || index!="WHPT_AB"){
 
     # set up vector of oligochaete taxa
     families<-c("Lumbricidae", "Lumbriculidae", "Enchytraeidae", "Oligochaeta")
@@ -96,7 +96,7 @@ calcindex<-function(df, index="BMWP", tidy=FALSE){
   # check whether the data look like presence-absence and warn if calculating abundance-based index
   maxabund<-max(samples,na.rm=TRUE)
   if (maxabund==1){
-    if (index=="PSI" | index=="LIFE" | index=="WHPT_AB"){
+    if (index=="PSI" || index=="LIFE" || index=="WHPT_AB"){
       warning("Maximum abundance in samples is 1. Abundance-weighted indices may not be meaningful")
     }
   }
