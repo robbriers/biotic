@@ -47,9 +47,9 @@ test_that("PSI index for SeafieldDS1 = 69.44", {
   # load built-in dataset
   data(almond)
 
-  # calculate the BMWP index (default) for this dataset
+  # calculate the PSI index for this dataset
   testindex<-calcindex(almond, "PSI")
-  # check that it outputs a dataframe object
+  # check that the value of PSI for SeafieldDS1 is 69.44
   expect_equal(testindex$PSI[5], 69.44)
 
 })
