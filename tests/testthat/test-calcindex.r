@@ -42,3 +42,14 @@ test_that("abundance-weighted index causes warning with p-a data", {
   expect_warning(calcindex(p_a, index="LIFE"))
 
 })
+
+test_that("PSI index for SeafieldDS1 = 69.44", {
+  # load built-in dataset
+  data(almond)
+
+  # calculate the BMWP index (default) for this dataset
+  testindex<-calcindex(almond, "PSI")
+  # check that it outputs a dataframe object
+  expect_equal(testindex$PSI[5], 69.44)
+
+})
