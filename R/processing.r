@@ -140,7 +140,6 @@ convertalpha<-function(df){
   df<-df[,-1]
 
   df <- data.frame(lapply(df, as.character), stringsAsFactors=FALSE)
-  str(df)
 
   # convert categories to integers within classes
   df[df=="A"]<-1
