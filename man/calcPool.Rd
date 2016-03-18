@@ -5,11 +5,14 @@
 \title{Calculates Whalley 'Pool' habitat specific BMWP indices for invertebrate
 samples.}
 \usage{
-calcPool(df, tidy = FALSE)
+calcPool(df, alpha = FALSE, tidy = FALSE)
 }
 \arguments{
 \item{df}{A dataframe containing list of taxa in first column, followed by
 columns of abundances with sample names in header row.}
+
+\item{alpha}{Boolean indicating whether abundances are recorded as
+alphabetic categories. Defaults to FALSE.}
 
 \item{tidy}{Whether the data are in a 'tidy' format (sensu Wickham). The
 default is FALSE as data are commonly stored as columns as samples rather

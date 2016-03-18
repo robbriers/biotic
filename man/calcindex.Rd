@@ -4,7 +4,7 @@
 \alias{calcindex}
 \title{Calculate biotic indices for invertebrate samples.}
 \usage{
-calcindex(df, index = "BMWP", tidy = FALSE)
+calcindex(df, index = "BMWP", alpha = FALSE, tidy = FALSE)
 }
 \arguments{
 \item{df}{A dataframe containing list of taxa followed by their abundances
@@ -17,6 +17,9 @@ setting the \code{tidy} argument to TRUE (see below).}
 Options are: \code{"BMWP"}, \code{"Whalley"}, \code{"Riffle"}, \code{"Pool"}
 ,\code{"RiffPool"}, \code{"LIFE"}, \code{"PSI"}, \code{"WHPT"},
 \code{"WHPT_AB"} and \code{"AWIC"}.}
+
+\item{alpha}{Boolean indicating whether abundances are recorded as
+alphabetic categories. Defaults to FALSE.}
 
 \item{tidy}{Whether the data are in a 'tidy' format (sensu Wickham). The
 default is FALSE as data are commonly stored as columns as samples rather
@@ -43,7 +46,7 @@ Calculates a range of freshwater invertebrate biotic indices
 data(almond)
 
 # calculate the PSI index for this dataset
-# tidy is not specified as default is used (FALSE)
+# tidy and alpha are not specified as defaults are used (FALSE)
 
 calcindex(almond, index="PSI")
 }
