@@ -15,6 +15,8 @@
 #' Options are: \code{"BMWP"}, \code{"Whalley"}, \code{"Riffle"}, \code{"Pool"}
 #' ,\code{"RiffPool"}, \code{"LIFE"}, \code{"PSI"}, \code{"WHPT"},
 #' \code{"WHPT_AB"} and \code{"AWIC"}.
+#' @param alpha Boolean indicating whether abundances are recorded as
+#' alphabetic categories. Defaults to FALSE.
 #' @param tidy Whether the data are in a 'tidy' format (sensu Wickham). The
 #' default is FALSE as data are commonly stored as columns as samples rather
 #' than rows (with the taxon list in the first column). This is the default
@@ -30,12 +32,12 @@
 #' data(almond)
 #'
 #' # calculate the PSI index for this dataset
-#' # tidy is not specified as default is used (FALSE)
+#' # tidy and alpha are not specified as defaults are used (FALSE)
 #'
 #' calcindex(almond, index="PSI")
 
 
-calcindex<-function(df, index="BMWP", tidy=FALSE){
+calcindex<-function(df, index="BMWP", alpha=FALSE, tidy=FALSE){
 
   # check that a correct method has been specified
   TYPES<-c("BMWP", "Whalley", "Riffle", "Pool", "RiffPool", "PSI", "LIFE", "WHPT", "WHPT_AB", "AWIC")
@@ -43,6 +45,11 @@ calcindex<-function(df, index="BMWP", tidy=FALSE){
   ind<-TYPES[indextype]
   if (is.na(indextype))
     stop("invalid index choice")
+
+  # if abundances are recorded as alphabetic categories, convert them
+  if (alpha=="TRUE"){
+    df<-convertalpha(df)
+  }
 
   # if tidy data are are supplied, transpose before calculation
   if (tidy=="TRUE"){
