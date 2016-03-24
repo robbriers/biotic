@@ -21,7 +21,7 @@ calcscore<-function(abundances, taxonlist, index){
   taxapresent<-sampledata[sampledata[,2] > 0,]
 
   # check for BWMP composite families and remove, except for PSI and WHPT
-  if (index!="PSI" || index!="WHPT" || index!="WHPT_AB"){
+  if (index=="BMWP" | index=="AWIC" | index=="LIFE"){
 
     # extract composite families from indextable
     composites<-indextable[indextable$Composite!="",]

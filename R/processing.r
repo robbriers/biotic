@@ -121,15 +121,15 @@ transposedata<-function(df){
   return(df_t)
 }
 
-#' Convert alphabetic log abundance classes.
-#' @description Takes data recorded as alphabetic log abundance classes
-#' and converts them to numeric format, with abritary abundances within
-#' each class: A=1, B=10, C=100, D=1000, E=1000.
-#'
-#' @param df A dataframe containing abundances of invertebrate taxa in
-#' different samples recorded as alphabetic categories (character format).
-#' @return A data frame with alphabetic categories converted to
-#' appropriate numeric values for index calculation.
+# Convert alphabetic log abundance classes.
+# @description Takes data recorded as alphabetic log abundance classes
+# and converts them to numeric format, with abritary abundances within
+# each class: A=1, B=10, C=100, D=1000, E=1000.
+#
+# @param df A dataframe containing abundances of invertebrate taxa in
+# different samples recorded as alphabetic categories (character format).
+# @return A data frame with alphabetic categories converted to
+# appropriate numeric values for index calculation.
 
 convertalpha<-function(df){
 

@@ -55,12 +55,10 @@ calcindex<-function(df, index="BMWP", alpha=FALSE, tidy=FALSE){
   if (tidy=="TRUE"){
     df<-transposedata(df)
   }
-
   # check for and combine oligochaete families, except for PSI and WHPT
-  if (index!="PSI" || index!="WHPT" || index!="WHPT_AB"){
-
+  if (index=="BMWP" | index=="AWIC" | index=="LIFE"){
     # set up vector of oligochaete taxa
-    families<-c("Lumbricidae", "Lumbriculidae", "Enchytraeidae", "Oligochaeta")
+    families<-c("Lumbricidae", "Lumbriculidae", "Enchytraeidae", "Haplotaxidae", "Naididae", "Tubificidae", "Oligochaeta")
 
     # create logical vector of rows with oligochaetes
     present<- df[,1] %in% families
@@ -77,8 +75,13 @@ calcindex<-function(df, index="BMWP", alpha=FALSE, tidy=FALSE){
 
       # if there is more than one row of worms
       if(nrow(worms)>1){
-      # sum abundance across all oligochaetes and add to first row
-      worms[1,-1]<-colSums(worms[,-1],na.rm=TRUE)
+        # if there is more than one sample
+        if (ncol(worms)>2){
+          # sum abundance across all oligochaetes and add to first row
+          worms[1,-1]<-colSums(worms[,-1],na.rm=TRUE)
+        } else {
+          worms[1,-1]<-sum(worms[,2], na.rm=FALSE)
+        }
       }
       # add taxon string back in
       worms[1,1]<-"Oligochaeta"
