@@ -3,7 +3,7 @@
 
 
 ## Repository for the development of the biotic package for R.
-Note that this is still under development so may contain bugs.
+Note that there is currently a bug in the calculations for some indices, so values should not be used at present: see Issue #5.
 
 ### Introduction
 The biotic package calculates a range of commonly used UK freshwater invertebrate biotic indices, based on family level identification.  Indices that can be calculated are BMWP (and associated N-Taxa and ASPT), Whalley revised BWMP, habitat specific BMWP, WHPT (presence-only and abundance-weighted), LIFE, PSI and AWIC. Links to the definitions of these indices are given at the end of the text.
