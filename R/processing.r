@@ -124,7 +124,7 @@ transposedata<-function(df){
 # Convert alphabetic log abundance classes.
 # @description Takes data recorded as alphabetic log abundance classes
 # and converts them to numeric format, with abritary abundances within
-# each class: A=1, B=10, C=100, D=1000, E=1000.
+# each class: A=1, B=10, C=100, D=1000, E=10000.
 #
 # @param df A dataframe containing abundances of invertebrate taxa in
 # different samples recorded as alphabetic categories (character format).
@@ -149,6 +149,46 @@ convertalpha<-function(df){
   df[df=="E"]<-10000
 
   # convert to numeric values using data.matrix
+  df<-as.data.frame(data.matrix(df))
+
+  # add sample labels back on
+  df<-cbind.data.frame(firstcol, df)
+
+  # return converted values
+  return(df)
+}
+
+# Convert numeric log abundance classes.
+# @description Takes data recorded as integer log abundance classes
+# and converts them to actual numeric values, with abritary abundances within
+# each class: 1=1, 2=10, 3=100, 4=1000, 5=10000.
+#
+# @param df A dataframe containing abundances of invertebrate taxa in
+# different samples recorded as integer categories.
+# @return A data frame with integer log categories converted to
+# appropriate numeric values for index calculation.
+
+convertlog<-function(df){
+
+  # separate first column (taxa/labels) from data
+  firstcol<-df[,1]
+
+  # rest of df is integer abundance categories
+  df<-df[,-1]
+
+# don't need this?
+  #df <- data.frame(lapply(df, as.character), stringsAsFactors=FALSE)
+
+  # convert log categories to integers within classes
+  df[df==1]<-1
+  df[df==2]<-10
+  df[df==3]<-100
+  df[df==4]<-1000
+  df[df==5]<-10000
+
+  # convert to numeric values using data.matrix
+  # NEEDED??
+  #
   df<-as.data.frame(data.matrix(df))
 
   # add sample labels back on

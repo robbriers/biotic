@@ -9,22 +9,20 @@
 #' @param df A dataframe containing list of taxa followed by their abundances
 #' in samples, with sample names as headers.  Default format is for taxon
 #' names to be in the first column and sample abundances in subsequent
-#' columns, but data can also be processed in the transposed layout by
-#' setting the \code{tidy} argument to TRUE (see below).
+#' columns. See built-in \code{\link{almond}} dataset for an example. If data
+#' are in transposed format i.e taxa as columns and samples as rows, the
+#' \code{\link{transposedata}} function can be used prior to calculation.
+#'
 #' @param index A choice of index to be calculated. Defaults to \code{"BMWP"}.
 #' Options are: \code{"BMWP"}, \code{"Whalley"}, \code{"Riffle"}, \code{"Pool"}
 #' ,\code{"RiffPool"}, \code{"LIFE"}, \code{"PSI"}, \code{"WHPT"},
 #' \code{"WHPT_AB"} and \code{"AWIC"}.
-#' @param alpha Boolean indicating whether abundances are recorded as
-#' alphabetic categories. Defaults to FALSE.
-#' @param tidy Whether the data are in a 'tidy' format (sensu Wickham). The
-#' default is FALSE as data are commonly stored as columns as samples rather
-#' than rows (with the taxon list in the first column). This is the default
-#' format; if set to TRUE the data are transposed prior to processing using
-#'  the internal \code{\link{transposedata}} function.
-#' @return A data frame consisting of columns of indices with samples in rows
-#'  (tidy format). The number of columns returned depends on the index
-#'  selected.
+#' @param type Indicates format of data. Options are "num" for numeric data,
+#' "log" for integer log abundance categories (1-5) or "alpha" for alphabetic
+#' abundance categories (A-E). Default value is "num".
+#'
+#' @return A data frame consisting of columns of indices with samples in rows.
+#'  The number of columns returned depends on the index selected.
 #' @export calcindex
 #' @examples
 #' # load the built-in River Almond dataset
@@ -32,31 +30,43 @@
 #' data(almond)
 #'
 #' # calculate the PSI index for this dataset
-#' # tidy and alpha are not specified as defaults are used (FALSE)
+#' # type is not specified as default is used ("num")
 #'
 #' calcindex(almond, index="PSI")
 
 
-calcindex<-function(df, index="BMWP", alpha=FALSE, tidy=FALSE){
+calcindex<-function(df, index="BMWP", type="num"){
 
   # check that a correct method has been specified
-  TYPES<-c("BMWP", "Whalley", "Riffle", "Pool", "RiffPool", "PSI", "LIFE", "WHPT", "WHPT_AB", "AWIC")
-  indextype<-pmatch(index, TYPES)
-  ind<-TYPES[indextype]
+  INDICES<-c("BMWP", "Whalley", "Riffle", "Pool", "RiffPool", "PSI", "LIFE", "WHPT", "WHPT_AB", "AWIC")
+  indextype<-pmatch(index, INDICES)
   if (is.na(indextype))
-    stop("invalid index choice")
+    stop("Invalid index choice")
+
+  # check that a correct type has been specified
+  TYPES<-c("num", "log", "alpha")
+  datatype<-pmatch(type, TYPES)
+  if (is.na(datatype))
+    stop("Invalid data type specified")
+
 
   # if abundances are recorded as alphabetic categories, convert them
-  if (alpha=="TRUE"){
+  if (type=="alpha"){
     df<-convertalpha(df)
   }
-
-  # if tidy data are are supplied, transpose before calculation
-  if (tidy=="TRUE"){
-    df<-transposedata(df)
+  # if abundances are recorded as log categories, convert them
+  if (type=="log"){
+    # check maximum value is 5
+    maxabund<-max(df[,2:ncol(df)], na.rm=TRUE)
+    if (maxabund>5){
+        stop("Maximum value is > 5; not log categories")
+    }
+    df<-convertlog(df)
   }
+
   # check for and combine oligochaete families, except for PSI and WHPT
-  if (index=="BMWP" | index=="AWIC" | index=="LIFE"){
+  if (index!="WHPT" && index!="WHPT_AB" && index!="PSI"){
+
     # set up vector of oligochaete taxa
     families<-c("Lumbricidae", "Lumbriculidae", "Enchytraeidae", "Haplotaxidae", "Naididae", "Tubificidae", "Oligochaeta")
 
