@@ -5,9 +5,6 @@
 \alias{almond}
 \title{River Almond invertebrate dataset}
 \format{DataFrame}
-\usage{
-almond
-}
 \description{
 The dataset is part of that derived from samples taken by David Lawson as part of his
 undergraduate research project in Spring 2015.

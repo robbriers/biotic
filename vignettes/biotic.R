@@ -14,17 +14,15 @@ head(almond)
 
 ## ------------------------------------------------------------------------
 # calculate the PSI index for the almond samples
-# tidy argument not needed as the data are in the default format
+# type argument not needed as the data are in the default format of abundances
 calcindex(almond, "PSI")
 
-## ------------------------------------------------------------------------
-# to illustrate the use of the 'tidy' argument, first transpose the data
-# use the 'transposedata' function in the package to do this
-t_almond<-transposedata(almond)
-
-# calculate the WHPT index for the transposed dataset
-# this time specify the tidy argument, to allow for layout of data
-calcindex(t_almond, "WHPT", tidy=TRUE)
+## ---- eval=FALSE---------------------------------------------------------
+#  # process data with integer log abundance categories
+#  calcindex(log_cat_data, "PSI", type="log")
+#  
+#  # similarly for alphabetic category data
+#  calcindex(alpha_cat_data, "PSI", type="alpha")
 
 ## ------------------------------------------------------------------------
 # calculate the BMWP index for almond samples
@@ -35,7 +33,4 @@ calcAWIC(almond)
 
 # calculate the WHPT abundance-weighted index for almond samples
 calcWHPT_AB(almond)
-
-# calculate the LIFE index on the transposed almond sample data
-calcLIFE(t_almond, tidy=TRUE)
 

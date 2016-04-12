@@ -9,4 +9,4 @@
 #' @docType data
 #' @format DataFrame
 #' @author David Lawson, 2015
-"almond"
+NULL

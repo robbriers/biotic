@@ -4,20 +4,15 @@
 \alias{calcWHPT}
 \title{Calculates presence-only WHPT indices for invertebrate samples.}
 \usage{
-calcWHPT(df, alpha = FALSE, tidy = FALSE)
+calcWHPT(df, type = "num")
 }
 \arguments{
 \item{df}{A dataframe containing list of taxa in first column, followed by
 columns of abundances with sample names in header row.}
 
-\item{alpha}{Boolean indicating whether abundances are recorded as
-alphabetic categories. Defaults to FALSE.}
-
-\item{tidy}{Whether the data are in a 'tidy' format (sensu Wickham). The
-default is FALSE as data are commonly stored as columns as samples rather
-than rows (with the taxon list in the first column). This is the default
- format; if set to TRUE the data are transposed prior to processing using
- the internal \code{\link{transposedata}} function.}
+\item{type}{Indicates format of data. Options are "num" for numeric data,
+"log" for integer log abundance categories (1-5) or "alpha" for alphabetic
+abundance categories (A-E). Default value is "num".}
 }
 \value{
 A data frame consisting of columns of indices with samples in

@@ -4,33 +4,28 @@
 \alias{calcindex}
 \title{Calculate biotic indices for invertebrate samples.}
 \usage{
-calcindex(df, index = "BMWP", alpha = FALSE, tidy = FALSE)
+calcindex(df, index = "BMWP", type = "num")
 }
 \arguments{
 \item{df}{A dataframe containing list of taxa followed by their abundances
 in samples, with sample names as headers.  Default format is for taxon
 names to be in the first column and sample abundances in subsequent
-columns, but data can also be processed in the transposed layout by
-setting the \code{tidy} argument to TRUE (see below).}
+columns. See built-in \code{\link{almond}} dataset for an example. If data
+are in transposed format i.e taxa as columns and samples as rows, the
+\code{\link{transposedata}} function can be used prior to calculation.}
 
 \item{index}{A choice of index to be calculated. Defaults to \code{"BMWP"}.
 Options are: \code{"BMWP"}, \code{"Whalley"}, \code{"Riffle"}, \code{"Pool"}
 ,\code{"RiffPool"}, \code{"LIFE"}, \code{"PSI"}, \code{"WHPT"},
 \code{"WHPT_AB"} and \code{"AWIC"}.}
 
-\item{alpha}{Boolean indicating whether abundances are recorded as
-alphabetic categories. Defaults to FALSE.}
-
-\item{tidy}{Whether the data are in a 'tidy' format (sensu Wickham). The
-default is FALSE as data are commonly stored as columns as samples rather
-than rows (with the taxon list in the first column). This is the default
-format; if set to TRUE the data are transposed prior to processing using
- the internal \code{\link{transposedata}} function.}
+\item{type}{Indicates format of data. Options are "num" for numeric data,
+"log" for integer log abundance categories (1-5) or "alpha" for alphabetic
+abundance categories (A-E). Default value is "num".}
 }
 \value{
-A data frame consisting of columns of indices with samples in rows
- (tidy format). The number of columns returned depends on the index
- selected.
+A data frame consisting of columns of indices with samples in rows.
+ The number of columns returned depends on the index selected.
 }
 \description{
 Calculates a range of freshwater invertebrate biotic indices
@@ -46,7 +41,7 @@ Calculates a range of freshwater invertebrate biotic indices
 data(almond)
 
 # calculate the PSI index for this dataset
-# tidy and alpha are not specified as defaults are used (FALSE)
+# type is not specified as default is used ("num")
 
 calcindex(almond, index="PSI")
 }
