@@ -50,7 +50,7 @@ calcPool<-function(df, type="num"){
 #'
 #' @inheritParams calcBMWP
 #' @return A data frame consisting of columns of indices with samples in
-#' rows (tidy format).
+#' rows.
 #' @export calcRiffPool
 
 calcRiffPool<-function(df, type="num"){
@@ -61,7 +61,7 @@ calcRiffPool<-function(df, type="num"){
 #'
 #' @inheritParams calcBMWP
 #' @return A data frame consisting of columns of indices with samples in
-#' rows (tidy format).
+#' rows.
 #' @export calcWHPT
 
 calcWHPT<-function(df, type="num"){
@@ -72,7 +72,7 @@ calcWHPT<-function(df, type="num"){
 #'
 #' @inheritParams calcBMWP
 #' @return A data frame consisting of columns of indices with samples in
-#' rows (tidy format).
+#' rows.
 #' @export calcWHPT_AB
 
 calcWHPT_AB<-function(df, type="num"){
@@ -83,9 +83,8 @@ calcWHPT_AB<-function(df, type="num"){
 #'
 #' @inheritParams calcBMWP
 #' @return A data frame consisting of columns of indices with samples in
-#' rows (tidy format).
+#' rows.
 #' @export calcLIFE
-
 
 calcLIFE<-function(df, type="num"){
   calcindex(df, index="LIFE", type=type)
@@ -96,7 +95,7 @@ calcLIFE<-function(df, type="num"){
 #'
 #' @inheritParams calcBMWP
 #' @return A data frame consisting of columns of indices with samples in
-#' rows (tidy format).
+#' rows.
 #' @export calcPSI
 
 calcPSI<-function(df, type="num"){
@@ -107,7 +106,7 @@ calcPSI<-function(df, type="num"){
 #'
 #' @inheritParams calcBMWP
 #' @return A data frame consisting of columns of indices with samples in
-#' rows (tidy format).
+#' rows.
 #' @export calcAWIC
 
 calcAWIC<-function(df, type="num"){

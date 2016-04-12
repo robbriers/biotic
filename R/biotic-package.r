@@ -1,10 +1,10 @@
 #' biotic: A package for calculating a range of UK freshwater invertebrate
 #' biotic indices.
 #'
-#' The biotic package provides a main function, wrapper functions for
-#' easy calculation of specific indices and a data transposition function
-#' which is called internally when needed, but may be of use more
-#' generally
+#' The biotic package provides a main calculation function, wrapper
+#' functions for easy calculation of specific indices and a data
+#' transposition function which can be used to prepare data for analysis
+#' when needed.
 #'
 #' @section Main function:
 #' The main function is \code{\link{calcindex}} which allows the
@@ -18,10 +18,9 @@
 #'
 #' @section Data transposition function:
 #' The \code{\link{transposedata}} function allows for simple
-#' conversion between the default format and a 'tidy' format.
-#' It is called internally when needed but access is provided in case
-#' it is of more general utility.
+#' conversion between the default format with taxa in rows and
+#' samples in columns and the transpose of this.
 #'
 #' @docType package
-#' @name biotic
+#' @name biotic-package
 NULL

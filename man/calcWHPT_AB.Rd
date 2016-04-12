@@ -16,7 +16,7 @@ abundance categories (A-E). Default value is "num".}
 }
 \value{
 A data frame consisting of columns of indices with samples in
-rows (tidy format).
+rows.
 }
 \description{
 Calculates abundance-weighted WHPT indices for invertebrate samples.

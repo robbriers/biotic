@@ -17,7 +17,7 @@ abundance categories (A-E). Default value is "num".}
 }
 \value{
 A data frame consisting of columns of indices with samples in
-rows (tidy format).
+rows.
 }
 \description{
 Calculates Whalley 'Riffle/Pool' habitat specific BMWP indices for
