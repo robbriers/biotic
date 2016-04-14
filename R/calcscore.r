@@ -99,7 +99,6 @@ calcscore<-function(abundances, taxonlist, index){
       PSIscores$PSI<-ifelse(PSIscores$class==2, PSIscores$PSI+1, ifelse(PSIscores$class==3, PSIscores$PSI+2, ifelse(PSIscores$class==4, PSIscores$PSI+3, PSIscores$PSI)))
       PSI_ABscores<-PSIscores[PSIscores$PSIcat=="A" | PSIscores$PSIcat=="B",]
       PSI_AB<-sum(PSI_ABscores$PSI, na.rm=TRUE)
-      print(PSI_AB)
       PSI_All<-sum(PSIscores$PSI, na.rm=TRUE)
 
       scorelist<-c(round((PSI_AB/PSI_All)*100,2))
