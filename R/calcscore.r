@@ -78,9 +78,9 @@ calcscore<-function(abundances, taxonlist, index){
 
       # extract scores from relevant columns
       WHPTscore1<-sum(WHPTclass1$WHPT_AB1, na.rm=TRUE)
-      WHPTscore2<-sum(WHPTclass1$WHPT_AB2, na.rm=TRUE)
-      WHPTscore3<-sum(WHPTclass1$WHPT_AB3, na.rm=TRUE)
-      WHPTscore4<-sum(WHPTclass1$WHPT_AB4, na.rm=TRUE)
+      WHPTscore2<-sum(WHPTclass2$WHPT_AB2, na.rm=TRUE)
+      WHPTscore3<-sum(WHPTclass3$WHPT_AB3, na.rm=TRUE)
+      WHPTscore4<-sum(WHPTclass4$WHPT_AB4, na.rm=TRUE)
 
       # calculate index (ASPT and N-taxa)
       scorelist<-c(round(sum(WHPTscore1, WHPTscore2, WHPTscore3, WHPTscore4)/sum(!is.na(WHPTABscores$WHPT_AB1)),2), sum(!is.na(WHPTABscores$WHPT_AB1)))
@@ -97,10 +97,9 @@ calcscore<-function(abundances, taxonlist, index){
 
       # increment PSI scores based on log abundance class
       PSIscores$PSI<-ifelse(PSIscores$class==2, PSIscores$PSI+1, ifelse(PSIscores$class==3, PSIscores$PSI+2, ifelse(PSIscores$class==4, PSIscores$PSI+3, PSIscores$PSI)))
-
-      # calculate PSI index
       PSI_ABscores<-PSIscores[PSIscores$PSIcat=="A" | PSIscores$PSIcat=="B",]
       PSI_AB<-sum(PSI_ABscores$PSI, na.rm=TRUE)
+      print(PSI_AB)
       PSI_All<-sum(PSIscores$PSI, na.rm=TRUE)
 
       scorelist<-c(round((PSI_AB/PSI_All)*100,2))

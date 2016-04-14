@@ -7,8 +7,6 @@ biotic
 Repository for the development of the biotic package for R.
 -----------------------------------------------------------
 
-Note that there is currently a bug in the calculations for some indices, so values should not be used at present: see Issue \#5.
-
 ### Introduction
 
 The biotic package calculates a range of commonly used UK freshwater invertebrate biotic indices, based on family level identification. Indices that can be calculated are BMWP (and associated N-Taxa and ASPT), Whalley revised BWMP, habitat specific BMWP, WHPT (presence-only and abundance-weighted), LIFE, PSI and AWIC. Links to the definitions of these indices are given at the end of the text.
@@ -44,7 +42,7 @@ An example of the default layout of data can be seen by accessing the built-in '
 library(biotic)
 ```
 
-    ## This is biotic, dev version 0.1.1.9149
+    ## This is biotic, dev version 0.1.1.9153
 
 ``` r
 # load built-in almond dataset
@@ -69,6 +67,12 @@ The workhorse function of the package is 'calcindex'. The allows the user to spe
 # type argument not needed as the data are in the default format of abundances
 calcindex(almond, "PSI")
 ```
+
+    ## [1] 4
+    ## [1] 13
+    ## [1] 20
+    ## [1] 23
+    ## [1] 25
 
     ##         Sample   PSI
     ## 1    HowdenUS3 19.05
@@ -121,11 +125,11 @@ calcWHPT_AB(almond)
 ```
 
     ##         Sample WHPT_AB_ASPT WHPT_AB_Ntaxa
-    ## 1    HowdenUS3        11.36            14
-    ## 2   KirktonUS1        17.08            17
-    ## 3 MidcalderUS1        22.43            12
-    ## 4 MidcalderDS3        14.91            15
-    ## 5  SeafieldDS1        23.53            24
+    ## 1    HowdenUS3         4.34            14
+    ## 2   KirktonUS1         4.93            17
+    ## 3 MidcalderUS1         6.88            12
+    ## 4 MidcalderDS3         6.71            15
+    ## 5  SeafieldDS1         6.52            24
 
 ### Reporting problems
 
