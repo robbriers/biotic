@@ -28,7 +28,7 @@ The package assumes that the data are derived from standard three-minute kick sa
 ### Input format
 The data are assumed to be stored in a dataframe with the first column containing a list of taxon names and subsequent columns containing sample headers and individual taxon abundances. Absences should be recorded as 'NA' rather than zero (so blank cells in a csv file imported via read.csv), although the calculations will work with zero abundances as well, but this is not recommended. In addition to actual abundances, log categories (1-5) or alphabetic log categories (A-E) can also be processed, through specification of the data type (see below). 
 
-If you have data that are stored in a 'tidy' format [sensu Wickham](https://www.jstatsoft.org/article/view/v059i10), then these can be converted to the correct format for this package using the [reshape2](https://cran.r-project.org/package=rehape2) package, or the [tidyr](https://cran.r-project.org/package=tidyr) package prior to calculation.
+If you have data that are stored in a 'tidy' format [sensu Wickham](https://www.jstatsoft.org/article/view/v059i10), then these can be converted to the correct format for this package using the [reshape2](https://cran.r-project.org/package=reshape2) package, or the [tidyr](https://cran.r-project.org/package=tidyr) package prior to calculation.
 
 An example of the default layout of data can be seen by accessing the built-in 'almond' dataset.
 
@@ -81,7 +81,7 @@ The package is still in the development phase.  It has been tested fairly extens
 
 ### Sources of information about the indices calculated
 
-BMWP, Whalley Revised BMWP and Habitat-specific scores were taken from the table given [here](www.cies.staffs.ac.uk/bmwptabl.htm).
+BMWP, Whalley Revised BMWP and Habitat-specific scores were taken from the table given [here](http://www.cies.staffs.ac.uk/bmwptabl.htm).
 
 The derivation and history of the BMWP score is described in [Hawkes, H.A. (1998)](http://dx.doi.org/10.1016/S0043-1354(97)00275-3) Origin and development of the Biological Monitoring Working Party (BMWP) score system. *Water Research* **32**, 964-968. Details of the revised scores are given in [Walley W.J. &  Hawkes H.A. (1997)](http://dx.doi.org/10.1016/S0043-1354(96)00249-7) A computer-based development of the Biological Monitoring Working Party score system incorporating abundance rating, biotope type and indicator value. *Water Research*, **31**, 201-210.
 
