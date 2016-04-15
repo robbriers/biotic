@@ -10,7 +10,7 @@ The biotic package calculates a range of commonly used UK freshwater invertebrat
 
 ### Installation
 
-The current stable version of the package can be installed from CRAN via the normal means.
+The package is currently being evaluated by CRAN. Hopefully this will pass, and then the current stable version of the package will be installed from CRAN via the normal means.
 
 ``` r
 install.packages("biotic")
