@@ -1,7 +1,7 @@
 Package: biotic
 Type: Package
 Title: Calculation of Biotic Indices
-Version: 0.1.1.9158
+Version: 0.1.2
 Date: 2016-04-15
 Author: Dr Rob Briers
 Maintainer: Dr Rob Briers <r.briers@napier.ac.uk>
@@ -11,9 +11,13 @@ Depends:
     R (>= 3.0.0)
 License: GPL-3
 LazyData: TRUE
+Imports:
+    stats
 Suggests:
     testthat,
     knitr,
     rmarkdown
+URL: https://github.com/robbriers/biotic
+BugReports: https://github.com/robbriers/biotic/issues
 RoxygenNote: 5.0.1
 VignetteBuilder: knitr

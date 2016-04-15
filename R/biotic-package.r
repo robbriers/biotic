@@ -20,7 +20,8 @@
 #' The \code{\link{transposedata}} function allows for simple
 #' conversion between the default format with taxa in rows and
 #' samples in columns and the transpose of this.
-#'
+#' @importFrom stats na.omit
 #' @docType package
+#'
 #' @name biotic-package
 NULL

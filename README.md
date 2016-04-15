@@ -10,7 +10,13 @@ The biotic package calculates a range of commonly used UK freshwater invertebrat
 
 ### Installation
 
-The package is still in the development/testing stage so is only available from GitHub. Once testing is complete it will be submitted to CRAN. The homepage of the package is <https://github.com/robbriers/biotic>. In order to install it, you need to first install the 'devtools' package.
+The current stable version of the package can be installed from CRAN via the normal means.
+
+``` r
+install.packages("biotic")
+```
+
+The current development version can be obtained from GitHub. The homepage of the package is <https://github.com/robbriers/biotic>. In order to install the development version, you need to first install the 'devtools' package.
 
 ``` r
 install.packages("devtools")
@@ -39,7 +45,7 @@ An example of the default layout of data can be seen by accessing the built-in '
 library(biotic)
 ```
 
-    ## This is biotic, dev version 0.1.1.9157
+    ## This is biotic, version 0.1.2
 
 ``` r
 # load built-in almond dataset
@@ -130,7 +136,7 @@ calcLIFE(log_cat_data, type="log")
 
 ### Reporting problems
 
-The package is still in the development phase. It has been tested fairly extensively using different test datasets, but if you come across an error or bug, then please submit an [issue](https://github.com/robbriers/biotic/issues) or [email me](mailto:r.briers@napier.ac.uk), giving as much information as possible, and ideally the dataset that caused the problem.
+The package has been tested fairly extensively using different test datasets, but if you come across an error or bug, then please submit an [issue](https://github.com/robbriers/biotic/issues) or [email me](mailto:r.briers@napier.ac.uk), giving as much information as possible, and ideally the dataset that caused the problem.
 
 ### Sources of information about the indices calculated
 

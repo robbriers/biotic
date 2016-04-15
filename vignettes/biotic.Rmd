@@ -13,7 +13,11 @@ vignette: >
 The biotic package calculates a range of commonly used UK freshwater invertebrate biotic indices, based on family level identification.  Indices that can be calculated are BMWP (and associated N-Taxa and ASPT), Whalley revised BWMP, habitat specific BMWP, WHPT (presence-only and abundance-weighted), LIFE, PSI and AWIC. Links to the definitions of these indices are given at the end of the text.
 
 ### Installation
-The package is still in the development/testing stage so is only available from GitHub. Once testing is complete it will be submitted to CRAN.  The homepage of the package is [https://github.com/robbriers/biotic](https://github.com/robbriers/biotic). In order to install it, you need to first install the 'devtools' package.
+The current stable version of the package can be installed from CRAN via the normal means.
+```{r, eval=FALSE}
+install.packages("biotic")
+```
+The current development version can be obtained from GitHub. The homepage of the package is [https://github.com/robbriers/biotic](https://github.com/robbriers/biotic). In order to install the development version, you need to first install the 'devtools' package.
 ```{r, eval=FALSE}
 install.packages("devtools")
 ```
@@ -77,7 +81,7 @@ calcWHPT_AB(almond)
 calcLIFE(log_cat_data, type="log")
 ```
 ### Reporting problems
-The package is still in the development phase.  It has been tested fairly extensively using different test datasets, but if you come across an error or bug, then please submit an [issue](https://github.com/robbriers/biotic/issues) or [email me](mailto:r.briers@napier.ac.uk), giving as much information as possible, and ideally the dataset that caused the problem.
+The package has been tested fairly extensively using different test datasets, but if you come across an error or bug, then please submit an [issue](https://github.com/robbriers/biotic/issues) or [email me](mailto:r.briers@napier.ac.uk), giving as much information as possible, and ideally the dataset that caused the problem.
 
 ### Sources of information about the indices calculated
 

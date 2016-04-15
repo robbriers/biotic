@@ -176,20 +176,12 @@ convertlog<-function(df){
   # rest of df is integer abundance categories
   df<-df[,-1]
 
-# don't need this?
-  #df <- data.frame(lapply(df, as.character), stringsAsFactors=FALSE)
-
   # convert log categories to integers within classes
   df[df==1]<-1
   df[df==2]<-10
   df[df==3]<-100
   df[df==4]<-1000
   df[df==5]<-10000
-
-  # convert to numeric values using data.matrix
-  # NEEDED??
-  #
-  df<-as.data.frame(data.matrix(df))
 
   # add sample labels back on
   df<-cbind.data.frame(firstcol, df)

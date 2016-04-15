@@ -81,7 +81,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <div id="installation" class="section level3">
 <h3>Installation</h3>
-<p>The package is still in the development/testing stage so is only available from GitHub. Once testing is complete it will be submitted to CRAN. The homepage of the package is <a href="https://github.com/robbriers/biotic" class="uri">https://github.com/robbriers/biotic</a>. In order to install it, you need to first install the ‘devtools’ package.</p>
+<p>The current stable version of the package can be installed from CRAN via the normal means.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;biotic&quot;</span>)</code></pre></div>
+<p>The current development version can be obtained from GitHub. The homepage of the package is <a href="https://github.com/robbriers/biotic" class="uri">https://github.com/robbriers/biotic</a>. In order to install the development version, you need to first install the ‘devtools’ package.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;devtools&quot;</span>)</code></pre></div>
 <p>Then use the ‘install_github’ function within this package to load the development version from GitHub.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">devtools::<span class="kw">install_github</span>(<span class="st">'robbriers/biotic'</span>)</code></pre></div>
@@ -92,7 +94,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <div id="input-format" class="section level3">
 <h3>Input format</h3>
-<p>The data are assumed to be stored in a dataframe with the first column containing a list of taxon names and subsequent columns containing sample headers and individual taxon abundances. Absences should be recorded as ‘NA’ rather than zero (so blank cells in a csv file imported via read.csv), although the calculations will work with zero abundances as well, but this is not recommended. In addition to actual abundances, log categories (1-5) or alphabetic log categories (A-E) can also be processed, through specification of the data type (see below).</p>
+<p>The data are assumed to be stored in a dataframe with the first column containing a list of taxon names and subsequent columns containing sample headers and individual taxon abundances. Absences should be recorded as ‘NA’ rather than zero (so NA or blank cells in a csv file imported via read.csv), although the calculations will work with zero abundances as well, but this is not recommended. In addition to actual abundances, log categories (1-5) or alphabetic log categories (A-E) can also be processed, through specification of the data type (see below).</p>
 <p>If you have data that are stored in a ‘tidy’ format <a href="https://www.jstatsoft.org/article/view/v059i10">sensu Wickham</a>, then these can be converted to the correct format for this package using the <a href="https://cran.r-project.org/package=reshape2">reshape2</a> package, or the <a href="https://cran.r-project.org/package=tidyr">tidyr</a> package prior to calculation.</p>
 <p>An example of the default layout of data can be seen by accessing the built-in ‘almond’ dataset.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># load library</span>
@@ -111,7 +113,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <div id="functions" class="section level3">
 <h3>Functions</h3>
-<p>The workhorse function of the package is ‘calcindex’. The allows the user to specify which index is to be calculated as well as the type of data being processed through the ‘index’ and ‘type’ arguments. The first relates to the choice of index. Possible values for index are: “BMWP”, “Whalley”, “Riffle”, “Pool”, “RiffPool”, “WHPT”, “WHPT_AB”, “LIFE”, and “PSI”. The second argument relates to the format of the dataset. If it is in the default format detailed above (actual integer abundances) then it can be omitted. The use of these is best illustrated through examples.</p>
+<p>The workhorse function of the package is ‘calcindex’. The allows the user to specify which index is to be calculated as well as the type of data being processed through the ‘index’ and ‘type’ arguments. The first relates to the choice of index. Possible values for index are: “BMWP”, “Whalley”, “Riffle”, “Pool”, “RiffPool”, “WHPT”, “WHPT_AB”, “LIFE”, and “PSI”. The second argument relates to the format of the dataset.The options are “num” for numeric abundances, “log” for integer log categories (1-5) or “alpha” for alphabetic log abundance categories (A-E). If the data are in the default format (actual integer abundances) then it can be omitted. The use of these is best illustrated through examples.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># calculate the PSI index for the almond samples</span>
 <span class="co"># type argument not needed as the data are in the default format of abundances</span>
 <span class="kw">calcindex</span>(almond, <span class="st">&quot;PSI&quot;</span>)</code></pre></div>
@@ -161,7 +163,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <div id="reporting-problems" class="section level3">
 <h3>Reporting problems</h3>
-<p>The package is still in the development phase. It has been tested fairly extensively using different test datasets, but if you come across an error or bug, then please submit an <a href="https://github.com/robbriers/biotic/issues">issue</a> or <a href="mailto:r.briers@napier.ac.uk">email me</a>, giving as much information as possible, and ideally the dataset that caused the problem.</p>
+<p>The package has been tested fairly extensively using different test datasets, but if you come across an error or bug, then please submit an <a href="https://github.com/robbriers/biotic/issues">issue</a> or <a href="mailto:r.briers@napier.ac.uk">email me</a>, giving as much information as possible, and ideally the dataset that caused the problem.</p>
 </div>
 <div id="sources-of-information-about-the-indices-calculated" class="section level3">
 <h3>Sources of information about the indices calculated</h3>
