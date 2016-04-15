@@ -34,3 +34,8 @@ calcAWIC(almond)
 # calculate the WHPT abundance-weighted index for almond samples
 calcWHPT_AB(almond)
 
+## ---- eval=FALSE---------------------------------------------------------
+#  # calculate LIFE index based on integer log abundance categories
+#  # not run, just for illustration
+#  calcLIFE(log_cat_data, type="log")
+

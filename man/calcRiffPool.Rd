@@ -2,8 +2,7 @@
 % Please edit documentation in R/wrappers.r
 \name{calcRiffPool}
 \alias{calcRiffPool}
-\title{Calculates Whalley 'Riffle/Pool' habitat specific BMWP indices for
-invertebrate samples.}
+\title{Calculate Whalley 'Riffle/Pool' habitat-specific BMWP indices}
 \usage{
 calcRiffPool(df, type = "num")
 }
@@ -16,11 +15,11 @@ columns of abundances with sample names in header row.}
 abundance categories (A-E). Default value is "num".}
 }
 \value{
-A data frame consisting of columns of indices with samples in
-rows.
+A data frame consisting of columns of index values with samples
+in rows.
 }
 \description{
-Calculates Whalley 'Riffle/Pool' habitat specific BMWP indices for
-invertebrate samples.
+Calculates Whalley riffle/pool-specific BMWP, ASPT and N-taxa
+indices for invertebrate samples.
 }
 

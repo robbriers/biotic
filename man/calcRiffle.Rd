@@ -2,8 +2,8 @@
 % Please edit documentation in R/wrappers.r
 \name{calcRiffle}
 \alias{calcRiffle}
-\title{Calculates Whalley 'Riffle' Habitat specific BMWP indices for invertebrate
- samples.}
+\title{Calculate Whalley 'Riffle' habitat-specific BMWP indices for invertebrate
+samples}
 \usage{
 calcRiffle(df, type = "num")
 }
@@ -16,10 +16,11 @@ columns of abundances with sample names in header row.}
 abundance categories (A-E). Default value is "num".}
 }
 \value{
-A data frame consisting of columns of indices with samples in rows.
+A data frame consisting of columns of index values with samples
+in rows.
 }
 \description{
-Calculates Whalley 'Riffle' Habitat specific BMWP indices for invertebrate
- samples.
+Calculates Whalley riffle-specific BMWP, ASPT and N-taxa
+indices for invertebrate samples.
 }
 

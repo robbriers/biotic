@@ -2,34 +2,35 @@
 % Please edit documentation in R/calcindex.r
 \name{calcindex}
 \alias{calcindex}
-\title{Calculate biotic indices for invertebrate samples.}
+\title{Calculate biotic indices for invertebrate samples}
 \usage{
 calcindex(df, index = "BMWP", type = "num")
 }
 \arguments{
-\item{df}{A dataframe containing list of taxa followed by their abundances
-in samples, with sample names as headers.  Default format is for taxon
+\item{df}{A dataframe containing list of taxon names and their abundances
+in samples, along with sample identifiers.  Default format is for taxon
 names to be in the first column and sample abundances in subsequent
-columns. See built-in \code{\link{almond}} dataset for an example. If data
-are in transposed format i.e taxa as columns and samples as rows, the
-\code{\link{transposedata}} function can be used prior to calculation.}
+columns with identifers as column headers. See built-in \code{\link{almond}}
+ dataset for an example. If data are in the transposed format i.e taxa as
+ columns and samples as rows, the \code{\link{transposedata}} function can
+ be used prior to calculation.}
 
 \item{index}{A choice of index to be calculated. Defaults to \code{"BMWP"}.
-Options are: \code{"BMWP"}, \code{"Whalley"}, \code{"Riffle"}, \code{"Pool"}
-,\code{"RiffPool"}, \code{"LIFE"}, \code{"PSI"}, \code{"WHPT"},
+Options are: \code{"BMWP"}, \code{"Whalley"}, \code{"Riffle"}, \code{"Pool"},
+\code{"RiffPool"}, \code{"LIFE"}, \code{"PSI"}, \code{"WHPT"},
 \code{"WHPT_AB"} and \code{"AWIC"}.}
 
-\item{type}{Indicates format of data. Options are "num" for numeric data,
-"log" for integer log abundance categories (1-5) or "alpha" for alphabetic
-abundance categories (A-E). Default value is "num".}
+\item{type}{Indicates type of data being processed. Options are "num" for
+numeric data, "log" for integer log abundance categories (1-5) or "alpha"
+for alphabetic abundance categories (A-E). Default value is "num".}
 }
 \value{
-A data frame consisting of columns of indices with samples in rows.
- The number of columns returned depends on the index selected.
+A data frame consisting of columns of index values with samples in
+rows. The number of columns returned depends on the index selected.
 }
 \description{
 Calculates a range of freshwater invertebrate biotic indices
- in use in the UK (based on family level identification. Currently
+ in use in the UK (based on family level identification). Currently
  calculates BMWP (N-taxa and ASPT), Whalley revised BMWP, Whalley habitat
   specific BWMP (riffle, pool and riffle/pool), LIFE, PSI, WHPT (presence
  -absence and abundance-weighted) and AWIC.  For details of these indices
@@ -44,5 +45,14 @@ data(almond)
 # type is not specified as default is used ("num")
 
 calcindex(almond, index="PSI")
+
+\dontrun{
+
+# example using 'type' argument
+# alpha_cat_data is fictional df containing alphabetic category data
+# calculate the abundance-weighted WHPT index
+
+calcindex(alpha_cat_data, index="WHPT_AB", type="alpha")
+}
 }
 

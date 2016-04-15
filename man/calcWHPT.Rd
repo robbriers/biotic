@@ -2,7 +2,7 @@
 % Please edit documentation in R/wrappers.r
 \name{calcWHPT}
 \alias{calcWHPT}
-\title{Calculates presence-only WHPT indices for invertebrate samples.}
+\title{Calculate presence-only WHPT indices}
 \usage{
 calcWHPT(df, type = "num")
 }
@@ -15,10 +15,11 @@ columns of abundances with sample names in header row.}
 abundance categories (A-E). Default value is "num".}
 }
 \value{
-A data frame consisting of columns of indices with samples in
-rows.
+A data frame consisting of columns of index values with samples
+in rows.
 }
 \description{
-Calculates presence-only WHPT indices for invertebrate samples.
+Calculates WHPT presence-only ASPT and N-taxa indices
+for invertebrate samples.
 }
 

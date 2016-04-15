@@ -2,7 +2,7 @@
 % Please edit documentation in R/wrappers.r
 \name{calcWHPT_AB}
 \alias{calcWHPT_AB}
-\title{Calculates abundance-weighted WHPT indices for invertebrate samples.}
+\title{Calculate abundance-weighted WHPT indices}
 \usage{
 calcWHPT_AB(df, type = "num")
 }
@@ -15,10 +15,11 @@ columns of abundances with sample names in header row.}
 abundance categories (A-E). Default value is "num".}
 }
 \value{
-A data frame consisting of columns of indices with samples in
-rows.
+A data frame consisting of columns of index values with samples
+in rows.
 }
 \description{
-Calculates abundance-weighted WHPT indices for invertebrate samples.
+Calculates WHPT abundance-weighted ASPT and N-taxa indices
+for invertebrate samples.
 }
 

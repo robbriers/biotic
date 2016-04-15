@@ -2,7 +2,7 @@
 % Please edit documentation in R/wrappers.r
 \name{calcWhalley}
 \alias{calcWhalley}
-\title{Calculates Whalley revised BMWP indices for invertebrate samples.}
+\title{Calculate Whalley revised BMWP indices for invertebrate samples}
 \usage{
 calcWhalley(df, type = "num")
 }
@@ -15,9 +15,11 @@ columns of abundances with sample names in header row.}
 abundance categories (A-E). Default value is "num".}
 }
 \value{
-A data frame consisting of columns of indices with samples in rows.
+A data frame consisting of columns of index values with samples
+in rows.
 }
 \description{
-Calculates Whalley revised BMWP indices for invertebrate samples.
+Calculates Whalley revised BMWP, ASPT and N-taxa indices
+for invertebrate samples.
 }
 

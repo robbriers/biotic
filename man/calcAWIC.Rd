@@ -2,7 +2,7 @@
 % Please edit documentation in R/wrappers.r
 \name{calcAWIC}
 \alias{calcAWIC}
-\title{Calculates AWIC score indices for invertebrate samples.}
+\title{Calculate AWIC index}
 \usage{
 calcAWIC(df, type = "num")
 }
@@ -15,10 +15,10 @@ columns of abundances with sample names in header row.}
 abundance categories (A-E). Default value is "num".}
 }
 \value{
-A data frame consisting of columns of indices with samples in
-rows.
+A data frame consisting of a column of index values with samples
+in rows.
 }
 \description{
-Calculates AWIC score indices for invertebrate samples.
+Calculates AWIC index for invertebrate samples.
 }
 

@@ -6,7 +6,7 @@ biotic
 
 ### Introduction
 
-The biotic package calculates a range of commonly used UK freshwater invertebrate biotic indices, based on family level identification. Indices that can be calculated are BMWP (and associated N-Taxa and ASPT), Whalley revised BWMP, habitat specific BMWP, WHPT (presence-only and abundance-weighted), LIFE, PSI and AWIC. Links to the definitions of these indices are given at the end of the text.
+The biotic package calculates a range of commonly used UK freshwater invertebrate biotic indices, based on family level identification. Indices that can be calculated are BMWP (and associated N-Taxa and ASPT), Whalley revised BWMP, habitat-specific BMWP, WHPT (presence-only and abundance-weighted), LIFE, PSI and AWIC. Links to the definitions of these indices are given at the end of the text.
 
 ### Installation
 
@@ -57,7 +57,7 @@ head(almond)
 
 ### Functions
 
-The workhorse function of the package is 'calcindex'. The allows the user to specify which index is to be calculated as well as the type of data being processed through the 'index' and 'type' arguments. The first relates to the choice of index. Possible values for index are: "BMWP", "Whalley", "Riffle", "Pool", "RiffPool", "WHPT", "WHPT\_AB", "LIFE", "PSI" and "PSI". The second argument relates to the format of the dataset. If it is in the default format detailed above (actual integer abundances) then it can be omitted. The use of these is best illustrated through examples, again using the built-in almond dataset.
+The workhorse function of the package is 'calcindex'. The allows the user to specify which index is to be calculated as well as the type of data being processed through the 'index' and 'type' arguments. The first relates to the choice of index. Possible values for index are: "BMWP", "Whalley", "Riffle", "Pool", "RiffPool", "WHPT", "WHPT\_AB", "LIFE", and "PSI". The second argument relates to the format of the dataset. If it is in the default format detailed above (actual integer abundances) then it can be omitted. The use of these is best illustrated through examples.
 
 ``` r
 # calculate the PSI index for the almond samples
@@ -84,7 +84,7 @@ calcindex(alpha_cat_data, "PSI", type="alpha")
 
 ### Individual index functions
 
-In order to make calculating individual indices more straightforward, wrapper functions are also provided for each index. The specification of each index follows the string provided in the calcindex function (see above). Again these can process data in either integer abundance, integer log category or alphabetic log category format, through the type argument, which defaults to "num" if not specified as per the main function. Full details of these are provided in the help file (e.g ?calcBMWP), but examples are given below.
+In order to make calculating individual indices more straightforward, wrapper functions are also provided for each index. The specification of each index follows the string provided in the calcindex function (see above). Again these can process data in either integer abundance, integer log category or alphabetic log category format, through the type argument, which defaults to "num" if not specified as per the main function. Details of the individual index functions are provided in the help file (e.g ?calcBMWP), but examples are given below.
 
 ``` r
 # calculate the BMWP index for almond samples
@@ -121,6 +121,12 @@ calcWHPT_AB(almond)
     ## 3 MidcalderUS1         6.88            12
     ## 4 MidcalderDS3         6.71            15
     ## 5  SeafieldDS1         6.52            24
+
+``` r
+# calculate LIFE index based on integer log abundance categories
+# not run, just for illustration
+calcLIFE(log_cat_data, type="log")
+```
 
 ### Reporting problems
 

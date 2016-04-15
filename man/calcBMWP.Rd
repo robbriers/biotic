@@ -2,7 +2,7 @@
 % Please edit documentation in R/wrappers.r
 \name{calcBMWP}
 \alias{calcBMWP}
-\title{Calculates BMWP indices for invertebrate samples.}
+\title{Calculate BMWP indices for invertebrate samples}
 \usage{
 calcBMWP(df, type = "num")
 }
@@ -15,9 +15,10 @@ columns of abundances with sample names in header row.}
 abundance categories (A-E). Default value is "num".}
 }
 \value{
-A data frame consisting of columns of indices with samples in rows.
+A data frame consisting of columns of index values with samples in
+rows.
 }
 \description{
-Calculates BMWP indices for invertebrate samples.
+Calculates BMWP, ASPT and N-taxa index values for invertebrate samples.
 }
 

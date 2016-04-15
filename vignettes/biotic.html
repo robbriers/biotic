@@ -11,7 +11,7 @@
 
 <meta name="author" content="Dr Rob Briers" />
 
-<meta name="date" content="2016-04-12" />
+<meta name="date" content="2016-04-15" />
 
 <title>package biotic</title>
 
@@ -70,7 +70,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <h1 class="title">package ‘biotic’</h1>
 <h4 class="author"><em>Dr Rob Briers</em></h4>
-<h4 class="date"><em>2016-04-12</em></h4>
+<h4 class="date"><em>2016-04-15</em></h4>
 
 </div>
 
@@ -96,9 +96,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>If you have data that are stored in a ‘tidy’ format <a href="https://www.jstatsoft.org/article/view/v059i10">sensu Wickham</a>, then these can be converted to the correct format for this package using the <a href="https://cran.r-project.org/package=rehape2">reshape2</a> package, or the <a href="https://cran.r-project.org/package=tidyr">tidyr</a> package prior to calculation.</p>
 <p>An example of the default layout of data can be seen by accessing the built-in ‘almond’ dataset.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># load library</span>
-<span class="kw">library</span>(biotic)</code></pre></div>
-<pre><code>## This is biotic, dev version 0.1.1.9145</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># load built-in almond dataset</span>
+<span class="kw">library</span>(biotic)
+
+<span class="co"># load built-in almond dataset</span>
 <span class="kw">data</span>(almond)
 <span class="kw">head</span>(almond)</code></pre></div>
 <pre><code>##          Taxon HowdenUS3 KirktonUS1 MidcalderUS1 MidcalderDS3 SeafieldDS1
@@ -111,7 +111,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <div id="functions" class="section level3">
 <h3>Functions</h3>
-<p>The workhorse function of the package is ‘calcindex’. The allows the user to specify which index is to be calculated as well as the type of data being processed through the ‘index’ and ‘type’ arguments. The first relates to the choice of index. Possible values for index are: “BMWP”, “Whalley”, “Riffle”, “Pool”, “RiffPool”, “WHPT”, “WHPT_AB”, “LIFE”, “PSI” and “PSI”. The second argument relates to the format of the dataset. If it is in the default format detailed above (actual integer abundances) then it can be omitted. The use of these is best illustrated through examples, again using the built-in almond dataset.</p>
+<p>The workhorse function of the package is ‘calcindex’. The allows the user to specify which index is to be calculated as well as the type of data being processed through the ‘index’ and ‘type’ arguments. The first relates to the choice of index. Possible values for index are: “BMWP”, “Whalley”, “Riffle”, “Pool”, “RiffPool”, “WHPT”, “WHPT_AB”, “LIFE”, and “PSI”. The second argument relates to the format of the dataset. If it is in the default format detailed above (actual integer abundances) then it can be omitted. The use of these is best illustrated through examples.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># calculate the PSI index for the almond samples</span>
 <span class="co"># type argument not needed as the data are in the default format of abundances</span>
 <span class="kw">calcindex</span>(almond, <span class="st">&quot;PSI&quot;</span>)</code></pre></div>
@@ -150,11 +150,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># calculate the WHPT abundance-weighted index for almond samples</span>
 <span class="kw">calcWHPT_AB</span>(almond)</code></pre></div>
 <pre><code>##         Sample WHPT_AB_ASPT WHPT_AB_Ntaxa
-## 1    HowdenUS3        11.36            14
-## 2   KirktonUS1        17.08            17
-## 3 MidcalderUS1        22.43            12
-## 4 MidcalderDS3        14.91            15
-## 5  SeafieldDS1        23.53            24</code></pre>
+## 1    HowdenUS3         4.34            14
+## 2   KirktonUS1         4.93            17
+## 3 MidcalderUS1         6.88            12
+## 4 MidcalderDS3         6.71            15
+## 5  SeafieldDS1         6.52            24</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># calculate LIFE index based on integer log abundance categories</span>
+<span class="co"># not run, just for illustration</span>
+<span class="kw">calcLIFE</span>(log_cat_data, <span class="dt">type=</span><span class="st">&quot;log&quot;</span>)</code></pre></div>
 </div>
 <div id="reporting-problems" class="section level3">
 <h3>Reporting problems</h3>

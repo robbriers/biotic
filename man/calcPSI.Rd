@@ -2,7 +2,7 @@
 % Please edit documentation in R/wrappers.r
 \name{calcPSI}
 \alias{calcPSI}
-\title{Calculates PSI score indices for invertebrate samples.}
+\title{Calculate PSI index}
 \usage{
 calcPSI(df, type = "num")
 }
@@ -15,10 +15,11 @@ columns of abundances with sample names in header row.}
 abundance categories (A-E). Default value is "num".}
 }
 \value{
-A data frame consisting of columns of indices with samples in
-rows.
+A data frame consisting of a column of index values with samples
+in rows.
 }
 \description{
-Calculates PSI score indices for invertebrate samples.
+Calculates PSI index for invertebrate samples.
+for invertebrate samples.
 }
 

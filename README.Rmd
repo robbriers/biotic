@@ -6,7 +6,7 @@ output:
 [![Build Status](https://travis-ci.org/robbriers/biotic.svg?branch=master)](https://travis-ci.org/robbriers/biotic) [![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/robbriers/biotic?branch=master&svg=true)](https://ci.appveyor.com/project/robbriers/biotic/branch/master)
 
 ### Introduction
-The biotic package calculates a range of commonly used UK freshwater invertebrate biotic indices, based on family level identification.  Indices that can be calculated are BMWP (and associated N-Taxa and ASPT), Whalley revised BWMP, habitat specific BMWP, WHPT (presence-only and abundance-weighted), LIFE, PSI and AWIC. Links to the definitions of these indices are given at the end of the text.
+The biotic package calculates a range of commonly used UK freshwater invertebrate biotic indices, based on family level identification.  Indices that can be calculated are BMWP (and associated N-Taxa and ASPT), Whalley revised BWMP, habitat-specific BMWP, WHPT (presence-only and abundance-weighted), LIFE, PSI and AWIC. Links to the definitions of these indices are given at the end of the text.
 
 ### Installation
 The package is still in the development/testing stage so is only available from GitHub. Once testing is complete it will be submitted to CRAN.  The homepage of the package is [https://github.com/robbriers/biotic](https://github.com/robbriers/biotic). In order to install it, you need to first install the 'devtools' package.
@@ -38,7 +38,7 @@ head(almond)
 ```
 
 ### Functions
-The workhorse function of the package is 'calcindex'. The allows the user to specify which index is to be calculated as well as the type of data being processed through the 'index' and 'type' arguments. The first relates to the choice of index.  Possible values for index are: "BMWP", "Whalley", "Riffle", "Pool", "RiffPool", "WHPT", "WHPT_AB", "LIFE", "PSI" and "PSI".  The second argument relates to the format of the dataset.  If it is in the default format detailed above (actual integer abundances) then it can be omitted. The use of these is best illustrated through examples, again using the built-in almond dataset.
+The workhorse function of the package is 'calcindex'. The allows the user to specify which index is to be calculated as well as the type of data being processed through the 'index' and 'type' arguments. The first relates to the choice of index.  Possible values for index are: "BMWP", "Whalley", "Riffle", "Pool", "RiffPool", "WHPT", "WHPT_AB", "LIFE", and "PSI".  The second argument relates to the format of the dataset.  If it is in the default format detailed above (actual integer abundances) then it can be omitted. The use of these is best illustrated through examples.
 
 ```{r}
 # calculate the PSI index for the almond samples
@@ -56,7 +56,7 @@ calcindex(log_cat_data, "PSI", type="log")
 calcindex(alpha_cat_data, "PSI", type="alpha")
 ```
 ### Individual index functions
-In order to make calculating individual indices more straightforward, wrapper functions are also provided for each index. The specification of each index follows the string provided in the calcindex function (see above).  Again these can process data in either integer abundance, integer log category or alphabetic log category format, through the type argument, which defaults to "num" if not specified as per the main function. Full details of these are provided in the help file (e.g ?calcBMWP), but examples are given below.
+In order to make calculating individual indices more straightforward, wrapper functions are also provided for each index. The specification of each index follows the string provided in the calcindex function (see above).  Again these can process data in either integer abundance, integer log category or alphabetic log category format, through the type argument, which defaults to "num" if not specified as per the main function. Details of the individual index functions are provided in the help file (e.g ?calcBMWP), but examples are given below.
 ```{r}
 # calculate the BMWP index for almond samples
 calcBMWP(almond)
@@ -66,6 +66,11 @@ calcAWIC(almond)
 
 # calculate the WHPT abundance-weighted index for almond samples
 calcWHPT_AB(almond)
+```
+```{r, eval=FALSE}
+# calculate LIFE index based on integer log abundance categories
+# not run, just for illustration
+calcLIFE(log_cat_data, type="log")
 ```
 ### Reporting problems
 The package is still in the development phase.  It has been tested fairly extensively using different test datasets, but if you come across an error or bug, then please submit an [issue](https://github.com/robbriers/biotic/issues) or [email me](mailto:r.briers@napier.ac.uk), giving as much information as possible, and ideally the dataset that caused the problem.

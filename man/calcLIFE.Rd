@@ -2,7 +2,7 @@
 % Please edit documentation in R/wrappers.r
 \name{calcLIFE}
 \alias{calcLIFE}
-\title{Calculates LIFE score indices for invertebrate samples.}
+\title{Calculate LIFE index}
 \usage{
 calcLIFE(df, type = "num")
 }
@@ -15,10 +15,10 @@ columns of abundances with sample names in header row.}
 abundance categories (A-E). Default value is "num".}
 }
 \value{
-A data frame consisting of columns of indices with samples in
-rows.
+A data frame consisting of a column of index values with samples
+in rows.
 }
 \description{
-Calculates LIFE score indices for invertebrate samples.
+Calculates LIFE index values for invertebrate samples.
 }
 
