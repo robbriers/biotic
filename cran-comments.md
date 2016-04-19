@@ -1,7 +1,7 @@
 CRAN submission notes
 ================
 Rob Briers
-15 April 2016
+2016-04-19
 
 Test environments
 -----------------
@@ -11,7 +11,9 @@ Test environments
 -   Local lubuntu 15.10, R 3.2.2
 -   win-builder, R-release (3.2.5), R-devel (3.3.0)
 
-This is a new submission.
+This is a resubmission; there was previously a NOTE: Non-standard file/directory found at top level: 'cran-comments.md'
+
+This has been fixed.
 
 R CMD check results
 -------------------

@@ -132,14 +132,23 @@ transposedata<-function(df){
 # appropriate numeric values for index calculation.
 
 convertalpha<-function(df){
-
+  # check the number of samples being processed
+  numsamples<-ncol(df)-1
+  # if just one, extract sample name
+  if (numsamples==1){
+    samplename<-names(df[2])
+  }
   # separate first column (taxa/labels) from data
   firstcol<-df[,1]
-
   # rest of df is alphabetic abundance categories
   df<-df[,-1]
-
-  df <- data.frame(lapply(df, as.character), stringsAsFactors=FALSE)
+  # convert to character format
+  if (numsamples>1){
+    df <- data.frame(lapply(df, as.character), stringsAsFactors=FALSE)
+  } else {
+    df<-data.frame(as.character(df), stringsAsFactors=FALSE)
+    names(df)<-samplename
+  }
 
   # convert categories to integers within classes
   df[df=="A"]<-1
@@ -151,7 +160,7 @@ convertalpha<-function(df){
   # convert to numeric values using data.matrix
   df<-as.data.frame(data.matrix(df))
 
-  # add sample labels back on
+    # add sample labels back on
   df<-cbind.data.frame(firstcol, df)
 
   # return converted values
@@ -169,6 +178,12 @@ convertalpha<-function(df){
 # appropriate numeric values for index calculation.
 
 convertlog<-function(df){
+  # check the number of samples being processed
+  numsamples<-ncol(df)-1
+  # if just one, extract sample name
+  if (numsamples==1){
+    samplename<-names(df[2])
+  }
 
   # separate first column (taxa/labels) from data
   firstcol<-df[,1]
@@ -185,6 +200,9 @@ convertlog<-function(df){
 
   # add sample labels back on
   df<-cbind.data.frame(firstcol, df)
+  if (numsamples==1){
+    names(df)[2]<-samplename
+  }
 
   # return converted values
   return(df)
