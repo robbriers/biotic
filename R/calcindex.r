@@ -73,47 +73,45 @@ calcindex<-function(df, index="BMWP", type="num"){
     df<-convertlog(df)
   }
 
-  # check for and combine oligochaete families, except for PSI and WHPT
-  if (index!="WHPT" && index!="WHPT_AB" && index!="PSI"){
+  # check for and combine oligochaete families to class level
 
-    # set up vector of oligochaete taxa
-    families<-c("Lumbricidae", "Lumbriculidae", "Enchytraeidae", "Haplotaxidae", "Naididae", "Tubificidae", "Oligochaeta")
+  # set up vector of oligochaete taxa
+  families<-c("Lumbricidae", "Lumbriculidae", "Enchytraeidae", "Haplotaxidae", "Naididae", "Tubificidae", "Oligochaeta")
 
-    # create logical vector of rows with oligochaetes
-    present<- df[,1] %in% families
+  # create logical vector of rows with oligochaetes
+  present<- df[,1] %in% families
 
-    # extract non oligochaete rows
-    rest<-df[!present,]
+  # extract non oligochaete rows
+  rest<-df[!present,]
 
-    # subset rows with worms present
-    worms<-df[present,]
+  # subset rows with worms present
+  worms<-df[present,]
 
-    if (!is.null(worms)){
-      # convert taxon to character for replacement
-      worms[,1]<-as.character(worms[,1])
+  if (nrow(worms)!=0){
+    # convert taxon to character for replacement
+    worms[,1]<-as.character(worms[,1])
 
-      # if there is more than one row of worms
-      if(nrow(worms)>1){
-        # if there is more than one sample
-        if (ncol(worms)>2){
-          # sum abundance across all oligochaetes and add to first row
-          worms[1,-1]<-colSums(worms[,-1],na.rm=TRUE)
-        } else {
-          worms[1,-1]<-sum(worms[,2], na.rm=FALSE)
-        }
+    # if there is more than one row of worms
+    if(nrow(worms)>1){
+      # if there is more than one sample
+      if (ncol(worms)>2){
+        # sum abundance across all oligochaetes and add to first row
+        worms[1,-1]<-colSums(worms[,-1],na.rm=TRUE)
+      } else {
+        worms[1,-1]<-sum(worms[,2], na.rm=FALSE)
       }
-      # add taxon string back in
-      worms[1,1]<-"Oligochaeta"
-
-      # convert back to factor
-      worms[,1]<-as.factor(worms[,1])
-
-      # just take first row (sum)
-      worms<-worms[1,]
-
-      # recombine with rest of taxa
-      df<-rbind(rest, worms)
     }
+    # add taxon string back in
+    worms[1,1]<-"Oligochaeta"
+
+    # convert back to factor
+    worms[,1]<-as.factor(worms[,1])
+
+    # just take first row (sum)
+    worms<-worms[1,]
+
+    # recombine with rest of taxa
+    df<-rbind(rest, worms)
   }
 
   # separate out sample taxon list

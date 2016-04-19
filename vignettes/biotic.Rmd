@@ -13,7 +13,7 @@ vignette: >
 The biotic package calculates a range of commonly used UK freshwater invertebrate biotic indices, based on family level identification.  Indices that can be calculated are BMWP (and associated N-Taxa and ASPT), Whalley revised BWMP, habitat specific BMWP, WHPT (presence-only and abundance-weighted), LIFE, PSI and AWIC. Links to the definitions of these indices are given at the end of the text.
 
 ### Installation
-The current stable version of the package can be installed from CRAN via the normal means.
+The current release (0.1.2) of the package can be installed from CRAN via the normal means.
 ```{r, eval=FALSE}
 install.packages("biotic")
 ```

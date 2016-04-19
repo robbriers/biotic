@@ -4,4 +4,7 @@
 ^\.git$
 ^appveyor\.yml$
 ^README\.Rmd$
+^README\.md$
 ^cran-comments\.Rmd$
+^cran-comments\.md$
+

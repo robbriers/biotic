@@ -1,0 +1,10 @@
+citEntry(entry = "Manual",
+         title   = "biotic: Calculation of Freshwater Biotic Indices",
+         author  = "Rob Briers",
+         year    = "2016",
+         note    = "R package version 0.1.2",
+         url     = "https://github.com/robbriers/biotic",
+
+         textVersion =
+           paste("Rob Briers (2016) biotic: Calculation of Freshwater Biotic Indices. R package version 0.1.2. https://github.com/robbriers/biotic")
+)

@@ -93,9 +93,9 @@ logslice<-function(df){
   return(sliced)
 }
 
-#' Transpose data layout.
-#' @description Transposes a dataset, correctly processing column and row labels.
-#'
+#' Transpose data layout
+#' @description Transposes a dataset, correctly processing column and
+#' row labels.
 #' @param df A dataframe containing abundances of invertebrate taxa in
 #' different samples.
 #' @return A data frame transposing the input data, with row and column
@@ -123,7 +123,7 @@ transposedata<-function(df){
 
 # Convert alphabetic log abundance classes.
 # @description Takes data recorded as alphabetic log abundance classes
-# and converts them to numeric format, with abritary abundances within
+# and converts them to numeric format, with arbitary abundances within
 # each class: A=1, B=10, C=100, D=1000, E=10000.
 #
 # @param df A dataframe containing abundances of invertebrate taxa in
@@ -160,7 +160,7 @@ convertalpha<-function(df){
 
 # Convert numeric log abundance classes.
 # @description Takes data recorded as integer log abundance classes
-# and converts them to actual numeric values, with abritary abundances within
+# and converts them to actual numeric values, with arbitary abundances within
 # each class: 1=1, 2=10, 3=100, 4=1000, 5=10000.
 #
 # @param df A dataframe containing abundances of invertebrate taxa in
@@ -188,4 +188,34 @@ convertlog<-function(df){
 
   # return converted values
   return(df)
+}
+
+#' Check taxa against scoring list
+#' @description Check the list of taxa present in the sample dataset against
+#' the list of scoring taxa within package to identify any non-scoring taxa
+#' in the samples (or spelling mistakes).
+#' @param df A dataframe containing abundances of invertebrate taxa in
+#' different samples.
+#' @return A data frame containing the names of taxa that are not in the
+#' list of scoring taxa, or \code{NA} if all taxa are scoring.
+#' @export checktaxa
+
+checktaxa<-function(df){
+
+  # extract scoring taxa from indextable
+  scoring<-as.character(indextable$Taxon)
+
+  # create logical vector of rows with scoring taxa
+  onthelist<- df[,1] %in% scoring
+
+  # extract taxa not on the scoring list
+  notonthelist<-df[!onthelist,]
+
+  # return list of taxa not scoring, if there are any
+  if (nrow(notonthelist)!=0){
+    return(notonthelist[1])
+  } else {
+    notonthelist<-NA
+    return(notonthelist)
+  }
 }

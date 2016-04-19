@@ -10,7 +10,7 @@ The biotic package calculates a range of commonly used UK freshwater invertebrat
 
 ### Installation
 
-The package is currently being evaluated by CRAN. Hopefully this will pass, and then the current stable version of the package will be installed from CRAN via the normal means.
+The current release (0.1.2) of the package can be installed from CRAN via the normal means.
 
 ``` r
 install.packages("biotic")
@@ -72,11 +72,11 @@ calcindex(almond, "PSI")
 ```
 
     ##         Sample   PSI
-    ## 1    HowdenUS3 19.05
-    ## 2   KirktonUS1 48.15
-    ## 3 MidcalderUS1 95.24
-    ## 4 MidcalderDS3 85.19
-    ## 5  SeafieldDS1 67.57
+    ## 1    HowdenUS3 17.39
+    ## 2   KirktonUS1 44.83
+    ## 3 MidcalderUS1 83.33
+    ## 4 MidcalderDS3 76.67
+    ## 5  SeafieldDS1 62.50
 
 To process data in either integer or alphabetic log categories, the 'type' argument should specify either "log" or "alpha". Examples are shown below.
 

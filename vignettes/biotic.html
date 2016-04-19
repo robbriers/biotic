@@ -11,7 +11,7 @@
 
 <meta name="author" content="Dr Rob Briers" />
 
-<meta name="date" content="2016-04-15" />
+<meta name="date" content="2016-04-19" />
 
 <title>package biotic</title>
 
@@ -70,7 +70,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <h1 class="title">package ‘biotic’</h1>
 <h4 class="author"><em>Dr Rob Briers</em></h4>
-<h4 class="date"><em>2016-04-15</em></h4>
+<h4 class="date"><em>2016-04-19</em></h4>
 
 </div>
 
@@ -81,7 +81,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <div id="installation" class="section level3">
 <h3>Installation</h3>
-<p>The current stable version of the package can be installed from CRAN via the normal means.</p>
+<p>The current release (0.1.2) of the package can be installed from CRAN via the normal means.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;biotic&quot;</span>)</code></pre></div>
 <p>The current development version can be obtained from GitHub. The homepage of the package is <a href="https://github.com/robbriers/biotic" class="uri">https://github.com/robbriers/biotic</a>. In order to install the development version, you need to first install the ‘devtools’ package.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;devtools&quot;</span>)</code></pre></div>
@@ -118,11 +118,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="co"># type argument not needed as the data are in the default format of abundances</span>
 <span class="kw">calcindex</span>(almond, <span class="st">&quot;PSI&quot;</span>)</code></pre></div>
 <pre><code>##         Sample   PSI
-## 1    HowdenUS3 19.05
-## 2   KirktonUS1 48.15
-## 3 MidcalderUS1 95.24
-## 4 MidcalderDS3 85.19
-## 5  SeafieldDS1 67.57</code></pre>
+## 1    HowdenUS3 17.39
+## 2   KirktonUS1 44.83
+## 3 MidcalderUS1 83.33
+## 4 MidcalderDS3 76.67
+## 5  SeafieldDS1 62.50</code></pre>
 <p>To process data in either integer or alphabetic log categories, the ‘type’ argument should specify either “log” or “alpha”. Examples are shown below.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># process data with integer log abundance categories</span>
 <span class="kw">calcindex</span>(log_cat_data, <span class="st">&quot;PSI&quot;</span>, <span class="dt">type=</span><span class="st">&quot;log&quot;</span>)

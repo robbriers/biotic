@@ -2,7 +2,7 @@
 % Please edit documentation in R/processing.r
 \name{transposedata}
 \alias{transposedata}
-\title{Transpose data layout.}
+\title{Transpose data layout}
 \usage{
 transposedata(df)
 }
@@ -15,6 +15,7 @@ A data frame transposing the input data, with row and column
 labels processed correctly.
 }
 \description{
-Transposes a dataset, correctly processing column and row labels.
+Transposes a dataset, correctly processing column and
+row labels.
 }
 
