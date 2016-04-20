@@ -12,6 +12,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ## Test environments
 
 * Local Win 7 Enterprise, R 3.2.4 Revised
+* Local Win 7 Enterprise, R Under development (unstable) (2016-04-19 r70517)
 * ubuntu 12.04 on travis-ci, R 3.2.3
 * Local lubuntu 15.10, R 3.2.2
 * win-builder, R-release (3.2.5), R-devel (3.3.0)
