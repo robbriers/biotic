@@ -1,7 +1,7 @@
 CRAN submission notes
 ================
 Rob Briers
-2016-04-19
+2016-04-20
 
 Test environments
 -----------------
@@ -11,9 +11,7 @@ Test environments
 -   Local lubuntu 15.10, R 3.2.2
 -   win-builder, R-release (3.2.5), R-devel (3.3.0)
 
-This is a resubmission; there was previously a NOTE: Non-standard file/directory found at top level: 'cran-comments.md'
-
-This has been fixed.
+This is a resubmission; additional examples that are executed at run-time were requested. Additional datasets have been included to allow the running of a full range of examples. Additional examples are given in the main functions and also an example in each of the wrapper functions.
 
 R CMD check results
 -------------------

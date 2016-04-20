@@ -22,4 +22,11 @@ in rows.
 Calculates WHPT presence-only ASPT and N-taxa indices
 for invertebrate samples.
 }
+\examples{
+
+# calculate the WHPT presence-only indices for the Braid Burn dataset
+# data are alphabetic log abundance categories, so type is "alpha"
+
+calcWHPT(braidburn, "alpha")
+}
 

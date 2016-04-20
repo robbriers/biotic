@@ -22,4 +22,11 @@ in rows.
 Calculates WHPT abundance-weighted ASPT and N-taxa indices
 for invertebrate samples.
 }
+\examples{
+
+# calculate the WHPT abundance-weighted indices for the River Almond dataset
+# data are numeric abundances, so type is "num" (can be omitted)
+
+calcWHPT_AB(almond, "num")
+}
 

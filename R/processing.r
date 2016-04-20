@@ -105,9 +105,7 @@ logslice<-function(df){
 #' # transpose the built-in River Almond dataset
 #' # this would have to be transposed back to original format for calculation
 #'
-#' t_almond<-transposedata(almond)
-#' # display the result
-#' t_almond
+#' transposedata(almond)
 
 transposedata<-function(df){
 
@@ -225,13 +223,10 @@ convertlog<-function(df){
 #' list of scoring taxa, or \code{NA} if all taxa are scoring.
 #' @export checktaxa
 #' @examples
-#' # transpose the built-in River Almond dataset
-#' # this would have to be transposed back to original format for calculation
+#' # check the taxa in the built-in Braid Burn dataset
+#' # returns 'NA' if all taxa present have scores and are spelt correctly
 #'
-#' t_almond<-transposedata(almond)
-#' # display the result
-#' t_almond
-
+#' checktaxa(braidburn)
 
 checktaxa<-function(df){
 

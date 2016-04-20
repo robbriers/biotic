@@ -23,4 +23,11 @@ in rows.
 Calculates Whalley riffle-specific BMWP, ASPT and N-taxa
 indices for invertebrate samples.
 }
+\examples{
+
+# calculate the Whalley Riffle BMWP indices for the Braid Burn dataset
+# data are alphabetic log abundance categories, so type is "alpha"
+
+calcRiffle(braidburn, "alpha")
+}
 

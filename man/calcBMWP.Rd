@@ -21,4 +21,11 @@ rows.
 \description{
 Calculates BMWP, ASPT and N-taxa index values for invertebrate samples.
 }
+\examples{
+
+# calculate the BMWP indices for the River Almond dataset
+# 'type' not specified as data are numeric abundances
+
+calcBMWP(almond)
+}
 

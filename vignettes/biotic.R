@@ -11,34 +11,56 @@
 # load library
 library(biotic)
 
-# load built-in almond dataset
-data(almond)
+# show the format of the built-in almond dataset
 head(almond)
 
 ## ------------------------------------------------------------------------
+# calculate the BMWP index for the River Almond dataset
+# 'index' and 'type' do not have to specified as defaults are used
+# ("BMWP" and "num")
+
+calcindex(almond)
+
 # calculate the PSI index for the almond samples
-# type argument not needed as the data are in the default format of abundances
+# 'type' argument again not needed as the data are numeric abundances
 calcindex(almond, "PSI")
 
-## ---- eval=FALSE---------------------------------------------------------
-#  # process data with integer log abundance categories
-#  calcindex(log_cat_data, "PSI", type="log")
-#  
-#  # similarly for alphabetic category data
-#  calcindex(alpha_cat_data, "PSI", type="alpha")
+## ------------------------------------------------------------------------
+# example of processing data in alphabetic log abundance categories
+# using the 'type' argument
+
+# 'braidburn' dataset contains alphabetic log category data
+# see ?braidburn for details
+
+# calculate the Whalley revised BMWP index (including N-taxa and ASPT)
+
+calcindex(braidburn, "Whalley", "alpha")
+
+# example of processing data in numeric log abundance categories
+# using the 'type' argument
+
+# 'greenburn' dataset contains numeric log category data
+# see ?greenburn for details
+
+# calculate the LIFE index for this dataset
+
+calcindex(greenburn, "LIFE", "log")
 
 ## ------------------------------------------------------------------------
 # calculate the BMWP index for almond samples
+
 calcBMWP(almond)
 
 # calculate the AWIC index for almond samples
+
 calcAWIC(almond)
 
-# calculate the WHPT abundance-weighted index for almond samples
-calcWHPT_AB(almond)
+# calculate the WHPT abundance-weighted index for Green Burn samples
+# (numeric log abundance categories)
 
-## ---- eval=FALSE---------------------------------------------------------
-#  # calculate LIFE index based on integer log abundance categories
-#  # not run, just for illustration
-#  calcLIFE(log_cat_data, type="log")
+calcWHPT_AB(greenburn, "log")
+
+# calculate LIFE index for Braid Burn samples (alphabetic log categories)
+
+calcLIFE(braidburn, type="alpha")
 

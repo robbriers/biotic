@@ -23,4 +23,11 @@ in rows.
 Calculates Whalley pool-specific BMWP, ASPT and N-taxa indices
 for invertebrate samples.
 }
+\examples{
+
+# calculate the Whalley Pool BMWP indices for the Green Burn dataset
+# data are numeric log abundance categories, so type is "log"
+
+calcPool(greenburn, "log")
+}
 

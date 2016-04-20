@@ -21,4 +21,11 @@ in rows.
 \description{
 Calculates LIFE index values for invertebrate samples.
 }
+\examples{
+
+# calculate the LIFE index for the River Almond dataset
+# data are numeric abundances, so type can be omitted ("num" is default)
+
+calcLIFE(almond)
+}
 

@@ -21,4 +21,11 @@ in rows.
 \description{
 Calculates AWIC index for invertebrate samples.
 }
+\examples{
+
+# calculate the AWIC index for the Green Burn dataset
+# data are numeric log abundance categories, so type is "log"
+
+calcAWIC(greenburn, "log")
+}
 

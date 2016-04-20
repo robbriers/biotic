@@ -48,8 +48,7 @@ library(biotic)
     ## This is biotic, version 0.1.2
 
 ``` r
-# load built-in almond dataset
-data(almond)
+# show the format of the built-in almond dataset
 head(almond)
 ```
 
@@ -63,11 +62,26 @@ head(almond)
 
 ### Functions
 
-The workhorse function of the package is 'calcindex'. The allows the user to specify which index is to be calculated as well as the type of data being processed through the 'index' and 'type' arguments. The first relates to the choice of index. Possible values for index are: "BMWP", "Whalley", "Riffle", "Pool", "RiffPool", "WHPT", "WHPT\_AB", "LIFE", and "PSI". The second argument relates to the format of the dataset. The options are "num" for numeric abundances, "log" for integer log categories (1-5) or "alpha" for alphabetic log abundance categories (A-E). If the data are in the default format (actual integer abundances) then it can be omitted. The use of these is best illustrated through examples.
+The workhorse function of the package is 'calcindex'. The allows the user to specify which index is to be calculated as well as the type of data being processed through the 'index' and 'type' arguments. The first relates to the choice of index. Possible values for index are: "BMWP", "Whalley", "Riffle", "Pool", "RiffPool", "WHPT", "WHPT\_AB", "LIFE", and "PSI". The second argument relates to the format of the dataset.The options are "num" for numeric abundances, "log" for integer log categories (1-5) or "alpha" for alphabetic log abundance categories (A-E). If the data are in the default format (actual integer abundances) then it can be omitted. The use of these is best illustrated through examples using the built-in datasets ('almond', 'braidburn' and 'greenburn').
+
+``` r
+# calculate the BMWP index for the River Almond dataset
+# 'index' and 'type' do not have to specified as defaults are used
+# ("BMWP" and "num")
+
+calcindex(almond)
+```
+
+    ##         Sample BMWP Ntaxa ASPT
+    ## 1    HowdenUS3   57    14 4.07
+    ## 2   KirktonUS1   81    17 4.76
+    ## 3 MidcalderUS1   77    12 6.42
+    ## 4 MidcalderDS3   90    15 6.00
+    ## 5  SeafieldDS1  146    24 6.08
 
 ``` r
 # calculate the PSI index for the almond samples
-# type argument not needed as the data are in the default format of abundances
+# 'type' argument again not needed as the data are numeric abundances
 calcindex(almond, "PSI")
 ```
 
@@ -81,19 +95,54 @@ calcindex(almond, "PSI")
 To process data in either integer or alphabetic log categories, the 'type' argument should specify either "log" or "alpha". Examples are shown below.
 
 ``` r
-# process data with integer log abundance categories
-calcindex(log_cat_data, "PSI", type="log")
+# example of processing data in alphabetic log abundance categories
+# using the 'type' argument
 
-# similarly for alphabetic category data
-calcindex(alpha_cat_data, "PSI", type="alpha")
+# 'braidburn' dataset contains alphabetic log category data
+# see ?braidburn for details
+
+# calculate the Whalley revised BMWP index (including N-taxa and ASPT)
+
+calcindex(braidburn, "Whalley", "alpha")
 ```
+
+    ##   Sample Whalley_BMWP Whalley_Ntaxa Whalley_ASPT
+    ## 1     A4         70.5            11         6.41
+    ## 2     B6         65.3            10         6.53
+    ## 3     B4         50.6             7         7.23
+    ## 4     A3         37.2             7         5.31
+    ## 5     A2         43.6             7         6.23
+    ## 6     A5         45.5             7         6.50
+    ## 7     A1         27.8             5         5.56
+
+``` r
+# example of processing data in numeric log abundance categories
+# using the 'type' argument
+
+# 'greenburn' dataset contains numeric log category data
+# see ?greenburn for details
+
+# calculate the LIFE index for this dataset
+
+calcindex(greenburn, "LIFE", "log")
+```
+
+    ##   Sample LIFE
+    ## 1    GB1 8.45
+    ## 2    GB2 8.43
+    ## 3    GB3 8.23
+    ## 4    GB4 8.08
+    ## 5    GB5 8.11
+    ## 6    GB6 8.70
+    ## 7    GB7 8.23
 
 ### Individual index functions
 
-In order to make calculating individual indices more straightforward, wrapper functions are also provided for each index. The specification of each index follows the string provided in the calcindex function (see above). Again these can process data in either integer abundance, integer log category or alphabetic log category format, through the type argument, which defaults to "num" if not specified as per the main function. Details of the individual index functions are provided in the help file (e.g ?calcBMWP), but examples are given below.
+In order to make calculating individual indices more straightforward, wrapper functions are also provided for each index. The specification of each index follows the string provided in the calcindex function (see above). Again these can process data in either integer abundance, integer log category or alphabetic log category format, through the type argument, which defaults to "num" if not specified as per the main function. Full details of these are provided in the help file (e.g ?calcBMWP), but examples are given below.
 
 ``` r
 # calculate the BMWP index for almond samples
+
 calcBMWP(almond)
 ```
 
@@ -106,6 +155,7 @@ calcBMWP(almond)
 
 ``` r
 # calculate the AWIC index for almond samples
+
 calcAWIC(almond)
 ```
 
@@ -117,22 +167,35 @@ calcAWIC(almond)
     ## 5  SeafieldDS1 4.67
 
 ``` r
-# calculate the WHPT abundance-weighted index for almond samples
-calcWHPT_AB(almond)
+# calculate the WHPT abundance-weighted index for Green Burn samples
+# (numeric log abundance categories)
+
+calcWHPT_AB(greenburn, "log")
 ```
 
-    ##         Sample WHPT_AB_ASPT WHPT_AB_Ntaxa
-    ## 1    HowdenUS3         4.34            14
-    ## 2   KirktonUS1         4.93            17
-    ## 3 MidcalderUS1         6.88            12
-    ## 4 MidcalderDS3         6.71            15
-    ## 5  SeafieldDS1         6.52            24
+    ##   Sample WHPT_AB_ASPT WHPT_AB_Ntaxa
+    ## 1    GB1         7.90            22
+    ## 2    GB2         7.00             8
+    ## 3    GB3         7.09            15
+    ## 4    GB4         6.95            14
+    ## 5    GB5         7.31             9
+    ## 6    GB6         8.30            10
+    ## 7    GB7         7.61            14
 
 ``` r
-# calculate LIFE index based on integer log abundance categories
-# not run, just for illustration
-calcLIFE(log_cat_data, type="log")
+# calculate LIFE index for Braid Burn samples (alphabetic log categories)
+
+calcLIFE(braidburn, type="alpha")
 ```
+
+    ##   Sample LIFE
+    ## 1     A4 8.67
+    ## 2     B6 7.88
+    ## 3     B4 8.29
+    ## 4     A3 8.17
+    ## 5     A2 8.14
+    ## 6     A5 7.67
+    ## 7     A1 8.33
 
 ### Reporting problems
 

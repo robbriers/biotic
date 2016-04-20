@@ -22,4 +22,11 @@ in rows.
 Calculates Whalley revised BMWP, ASPT and N-taxa indices
 for invertebrate samples.
 }
+\examples{
+
+# calculate the Whalley revised BMWP indices for the Green Burn dataset
+# data are numeric log abundance categories, so type is "log"
+
+calcWhalley(greenburn, "log")
+}
 

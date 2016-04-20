@@ -20,11 +20,9 @@ the list of scoring taxa within package to identify any non-scoring taxa
 in the samples (or spelling mistakes).
 }
 \examples{
-# transpose the built-in River Almond dataset
-# this would have to be transposed back to original format for calculation
+# check the taxa in the built-in Braid Burn dataset
+# returns 'NA' if all taxa present have scores and are spelt correctly
 
-t_almond<-transposedata(almond)
-# display the result
-t_almond
+checktaxa(braidburn)
 }
 
