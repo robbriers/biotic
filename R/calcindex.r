@@ -26,23 +26,39 @@
 #' rows. The number of columns returned depends on the index selected.
 #' @export calcindex
 #' @examples
-#' # load the built-in River Almond dataset
+#' # use the built-in River Almond dataset, numeric abundances
 #'
-#' data(almond)
-#'
+#' # calculate the BMWP index for this dataset
+#' # 'index' and 'type' do not have to specified as defaults are used
+#' ("BMWP" and "num")
+#' calcindex(almond)
+
+
 #' # calculate the PSI index for this dataset
-#' # type is not specified as default is used ("num")
+#' # type does not have to specified as default is used ("num")
 #'
-#' calcindex(almond, index="PSI")
+#' calcindex(almond, "PSI")
 #'
-#' \dontrun{
+#' # calculate the WHPT abundance-weighted index for this dataset
 #'
-#' # example using 'type' argument
-#' # alpha_cat_data is fictional df containing alphabetic category data
-#' # calculate the abundance-weighted WHPT index
+#' calcindex(almond, "WHPT_AB")
 #'
-#' calcindex(alpha_cat_data, index="WHPT_AB", type="alpha")
-#' }
+#' # example of processing data in alphabetic log abundance categories
+#' # using the 'type' argument
+#' # braidburn dataset contains alphabetic log category data
+#' # see ?braidburn for details
+#' # calculate the Whalley revised BMWP index (including N-taxa and ASPT)
+#'
+#' calcindex(braidburn, "Whalley", "alpha")
+#'
+#' # example of processing data in numeric log abundance categories
+#' # using the 'type' argument
+#' # greenburn dataset contains numeric log category data
+#' # see ?greenburn for details
+#' # calculate the LIFE index for this dataset
+#'
+#' calcindex(greenburn, "LIFE", "log")
+#'
 
 calcindex<-function(df, index="BMWP", type="num"){
 

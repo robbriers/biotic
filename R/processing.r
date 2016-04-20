@@ -101,6 +101,13 @@ logslice<-function(df){
 #' @return A data frame transposing the input data, with row and column
 #' labels processed correctly.
 #' @export transposedata
+#' @examples
+#' # transpose the built-in River Almond dataset
+#' # this would have to be transposed back to original format for calculation
+#'
+#' t_almond<-transposedata(almond)
+#' # display the result
+#' t_almond
 
 transposedata<-function(df){
 
@@ -217,6 +224,14 @@ convertlog<-function(df){
 #' @return A data frame containing the names of taxa that are not in the
 #' list of scoring taxa, or \code{NA} if all taxa are scoring.
 #' @export checktaxa
+#' @examples
+#' # transpose the built-in River Almond dataset
+#' # this would have to be transposed back to original format for calculation
+#'
+#' t_almond<-transposedata(almond)
+#' # display the result
+#' t_almond
+
 
 checktaxa<-function(df){
 
