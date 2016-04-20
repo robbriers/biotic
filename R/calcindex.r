@@ -2,9 +2,9 @@
 #' @description Calculates a range of freshwater invertebrate biotic indices
 #'  in use in the UK (based on family level identification). Currently
 #'  calculates BMWP (N-taxa and ASPT), Whalley revised BMWP, Whalley habitat
-#'   specific BWMP (riffle, pool and riffle/pool), LIFE, PSI, WHPT (presence
-#'  -absence and abundance-weighted) and AWIC.  For details of these indices
-#'    see the vignette.
+#'   specific BWMP (riffle, pool and riffle/pool), LIFE, PSI, WHPT
+#'   (presence-absence and abundance-weighted) and AWIC.  For details of these
+#'    indices see the vignette.
 #'
 #' @param df A dataframe containing list of taxon names and their abundances
 #' in samples, along with sample identifiers.  Default format is for taxon

@@ -11,8 +11,8 @@ the Edinburgh Napier MSc Wildlife Biology and Conservation group in
 Spring 2015.
 Samples were collected using standard three-minute kick sampling
 techniques from sites on the Braid Burn within the Hermitage of
-Braid Local Nature Reserve, Edinburgh. The data are recorded as alphabetic
-log abundance categories (A-E).
+Braid Local Nature Reserve, Edinburgh, Scotland. The data are recorded
+as alphabetic log abundance categories (A-E).
 }
 \author{
 Rob Briers and MSc Wildlife Biology and Conservation students, 2015

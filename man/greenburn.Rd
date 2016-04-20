@@ -10,7 +10,8 @@ The dataset is derived from samples taken by the Edinburgh
 Napier MSc Aquatic Ecosystem Management group in Autumn 2012.
 Samples were collected using standard three-minute kick sampling techniques
 from a site on the Green Burn, a tributary of the River Almond in West
-Lothian. The data are recorded in numeric log abundance categories (1-5).
+Lothian, Scotland. The data are recorded in numeric log abundance
+categories (1-5).
 }
 \author{
 Rob Briers and MSc Aquatic Ecosystem Management students, 2012

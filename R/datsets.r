@@ -1,9 +1,10 @@
 #' @name almond
 #' @title River Almond invertebrate dataset
-#' @description The dataset is part of that derived from samples taken by David Lawson as part of his
-#' undergraduate research project in Spring 2015.
+#' @description The dataset is part of that derived from samples taken by
+#' David Lawson as part of his undergraduate research project in Spring 2015.
 #' Samples were collected using standard three-minute kick sampling techniques
-#' from sites on the River Almond, West Lothian above and below significant weirs.
+#' from sites on the River Almond, West Lothian, Scotland above and below
+#' significant weirs.
 #'
 #' @keywords datasets
 #' @docType data
@@ -18,8 +19,8 @@ NULL
 #' Spring 2015.
 #' Samples were collected using standard three-minute kick sampling
 #' techniques from sites on the Braid Burn within the Hermitage of
-#' Braid Local Nature Reserve, Edinburgh. The data are recorded as alphabetic
-#' log abundance categories (A-E).
+#' Braid Local Nature Reserve, Edinburgh, Scotland. The data are recorded
+#' as alphabetic log abundance categories (A-E).
 #'
 #' @keywords datasets
 #' @docType data
@@ -33,7 +34,8 @@ NULL
 #' Napier MSc Aquatic Ecosystem Management group in Autumn 2012.
 #' Samples were collected using standard three-minute kick sampling techniques
 #' from a site on the Green Burn, a tributary of the River Almond in West
-#' Lothian. The data are recorded in numeric log abundance categories (1-5).
+#' Lothian, Scotland. The data are recorded in numeric log abundance
+#' categories (1-5).
 #'
 #' @keywords datasets
 #' @docType data
