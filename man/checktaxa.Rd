@@ -19,4 +19,12 @@ Check the list of taxa present in the sample dataset against
 the list of scoring taxa within package to identify any non-scoring taxa
 in the samples (or spelling mistakes).
 }
+\examples{
+# transpose the built-in River Almond dataset
+# this would have to be transposed back to original format for calculation
+
+t_almond<-transposedata(almond)
+# display the result
+t_almond
+}
 

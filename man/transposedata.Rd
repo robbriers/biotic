@@ -18,4 +18,12 @@ labels processed correctly.
 Transposes a dataset, correctly processing column and
 row labels.
 }
+\examples{
+# transpose the built-in River Almond dataset
+# this would have to be transposed back to original format for calculation
+
+t_almond<-transposedata(almond)
+# display the result
+t_almond
+}
 
