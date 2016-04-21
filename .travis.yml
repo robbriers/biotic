@@ -2,9 +2,15 @@ language: r
 warnings_are_errors: true
 sudo: false
 
+r_github_packages:
+  - jimhester/covr
+
 env:
  global:
    - CRAN: http://cran.rstudio.com
+
+after_success:
+  - Rscript -e 'covr::coveralls()'
 
 notifications:
   email:
