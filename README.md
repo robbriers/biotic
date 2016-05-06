@@ -2,7 +2,7 @@
 biotic
 ======
 
-[![Build Status](https://travis-ci.org/robbriers/biotic.svg?branch=master)](https://travis-ci.org/robbriers/biotic) [![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/robbriers/biotic?branch=master&svg=true)](https://ci.appveyor.com/project/robbriers/biotic/branch/master) [![DOI](https://zenodo.org/badge/21485/robbriers/biotic.svg)](https://zenodo.org/badge/latestdoi/21485/robbriers/biotic) [![CRAN Version](http://www.r-pkg.org/badges/version/biotic)](http://www.r-pkg.org/pkg/biotic) [![Coverage Status](https://coveralls.io/repos/github/robbriers/biotic/badge.svg?branch=master)](https://coveralls.io/github/robbriers/biotic?branch=master)
+[![Build Status](https://travis-ci.org/robbriers/biotic.svg?branch=master)](https://travis-ci.org/robbriers/biotic) [![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/robbriers/biotic?branch=master&svg=true)](https://ci.appveyor.com/project/robbriers/biotic/branch/master) [![DOI](https://zenodo.org/badge/21485/robbriers/biotic.svg)](https://zenodo.org/badge/latestdoi/21485/robbriers/biotic) [![CRAN Version](http://www.r-pkg.org/badges/version/biotic)](http://www.r-pkg.org/pkg/biotic) [![Coverage Status](https://coveralls.io/repos/github/robbriers/biotic/badge.svg?branch=master)](https://coveralls.io/github/robbriers/biotic?branch=master) [![](http://cranlogs.r-pkg.org/badges/biotic)](http://cran.rstudio.com/web/packages/biotic/index.html)
 
 ### Introduction
 
