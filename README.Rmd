@@ -13,7 +13,7 @@ The current release (0.1.2) of the package can be installed from CRAN via the no
 ```{r, eval=FALSE}
 install.packages("biotic")
 ```
-The current development version can be obtained from GitHub. The homepage of the package is [https://github.com/robbriers/biotic](https://github.com/robbriers/biotic). In order to install the development version, you need to first install the 'devtools' package.
+The current development version (0.1.3) can be obtained from GitHub. The homepage of the package is [https://github.com/robbriers/biotic](https://github.com/robbriers/biotic). In order to install the development version, you need to first install the 'devtools' package.
 ```{r, eval=FALSE}
 install.packages("devtools")
 ```
