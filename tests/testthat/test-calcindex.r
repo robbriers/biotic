@@ -43,13 +43,13 @@ test_that("abundance-weighted index causes warning with p-a data", {
 
 })
 
-test_that("PSI index for SeafieldDS1 = 62.50", {
+test_that("PSI index for SeafieldDS1 = 64.29", {
   # load built-in dataset
   data(almond)
 
   # calculate the PSI index for this dataset
   testindex<-calcindex(almond, "PSI")
-  # check that the value of PSI for SeafieldDS1 is 62.50
-  expect_equal(testindex$PSI[5], 62.50)
+  # check that the value of PSI for SeafieldDS1 is 64.29
+  expect_equal(testindex$PSI[5], 64.29)
 
 })
