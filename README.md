@@ -11,6 +11,7 @@ Version](http://www.r-pkg.org/badges/version/biotic)](http://www.r-pkg.org/pkg/b
 [![Coverage
 Status](https://coveralls.io/repos/github/robbriers/biotic/badge.svg?branch=master)](https://coveralls.io/github/robbriers/biotic?branch=master)
 [![](http://cranlogs.r-pkg.org/badges/biotic)](http://cran.rstudio.com/web/packages/biotic/index.html)
+[![](https://cranlogs.r-pkg.org/badges/grand-total/biotic)](http://cran.rstudio.com/web/packages/biotic/index.html)
 
 ### Introduction
 
@@ -39,7 +40,7 @@ order to install the development version, you need to first install the
 install.packages("devtools")
 ```
 
-Then use the ‘install\_github’ function within this package to load the
+Then use the ‘install_github’ function within this package to load the
 development version from GitHub.
 
 ``` r
@@ -103,8 +104,8 @@ The workhorse function of the package is ‘calcindex’. The allows the
 user to specify which index is to be calculated as well as the type of
 data being processed through the ‘index’ and ‘type’ arguments. The first
 relates to the choice of index. Possible values for index are: “BMWP”,
-“Whalley”, “Riffle”, “Pool”, “RiffPool”, “WHPT”, “WHPT\_AB”, “LIFE”,
-and “PSI”. The second argument relates to the format of the dataset.The
+“Whalley”, “Riffle”, “Pool”, “RiffPool”, “WHPT”, “WHPT_AB”, “LIFE”, and
+“PSI”. The second argument relates to the format of the dataset.The
 options are “num” for numeric abundances, “log” for integer log
 categories (1-5) or “alpha” for alphabetic log abundance categories
 (A-E). If the data are in the default format (actual integer abundances)
@@ -157,13 +158,13 @@ calcindex(braidburn, "Whalley", "alpha")
 ```
 
     ##   Sample Whalley_BMWP Whalley_Ntaxa Whalley_ASPT
-    ## 1     A4         70.5            11         6.41
-    ## 2     B6         65.3            10         6.53
-    ## 3     B4         50.6             7         7.23
-    ## 4     A3         37.2             7         5.31
-    ## 5     A2         43.6             7         6.23
-    ## 6     A5         45.5             7         6.50
-    ## 7     A1         27.8             5         5.56
+    ## 1     A4          115            19         6.05
+    ## 2     B6          115            19         6.05
+    ## 3     B4          115            19         6.05
+    ## 4     A3          115            19         6.05
+    ## 5     A2          115            19         6.05
+    ## 6     A5          115            19         6.05
+    ## 7     A1          115            19         6.05
 
 ``` r
 # example of processing data in numeric log abundance categories
@@ -246,13 +247,13 @@ calcLIFE(braidburn, type="alpha")
 ```
 
     ##   Sample LIFE
-    ## 1     A4 8.67
-    ## 2     B6 7.88
-    ## 3     B4 8.29
-    ## 4     A3 8.17
-    ## 5     A2 8.14
-    ## 6     A5 7.67
-    ## 7     A1 8.33
+    ## 1     A4 7.29
+    ## 2     B6 7.29
+    ## 3     B4 7.29
+    ## 4     A3 7.29
+    ## 5     A2 7.29
+    ## 6     A5 7.29
+    ## 7     A1 7.29
 
 ### Reporting problems
 
@@ -268,22 +269,22 @@ BMWP, Whalley Revised BMWP and Habitat-specific scores were taken from
 the table given [here](http://www.cies.staffs.ac.uk/bmwptabl.htm).
 
 The derivation and history of the BMWP score is described in [Hawkes,
-H.A. (1998)](http://dx.doi.org/10.1016/S0043-1354\(97\)00275-3) Origin
-and development of the Biological Monitoring Working Party (BMWP) score
+H.A. (1998)](http://dx.doi.org/10.1016/S0043-1354(97)00275-3) Origin and
+development of the Biological Monitoring Working Party (BMWP) score
 system. *Water Research* **32**, 964-968. Details of the revised scores
 are given in [Walley W.J. & Hawkes H.A.
-(1997)](http://dx.doi.org/10.1016/S0043-1354\(96\)00249-7) A
+(1997)](http://dx.doi.org/10.1016/S0043-1354(96)00249-7) A
 computer-based development of the Biological Monitoring Working Party
 score system incorporating abundance rating, biotope type and indicator
 value. *Water Research*, **31**, 201-210.
 
 Details of the family level scores for LIFE, WHPT (both versions) and
 PSI were taken from the [FBA RICT Development report for
-SEPA](http://www.fba.org.uk/sites/default/files/SEPARICTWorkstream1\(WHPTandotherAbundance-WeightedIndices\)Final%20Report.pdf).
+SEPA](http://www.fba.org.uk/sites/default/files/SEPARICTWorkstream1(WHPTandotherAbundance-WeightedIndices)Final%20Report.pdf).
 
 The original derivation of the LIFE family level score is described in
 [Extence et
-al. (1999)](http://dx.doi.org/10.1002/\(SICI\)1099-1646\(199911/12\)15:6%3C545::AID-RRR561%3E3.0.CO;2-W)
+al. (1999)](http://dx.doi.org/10.1002/(SICI)1099-1646(199911/12)15:6%3C545::AID-RRR561%3E3.0.CO;2-W)
 River flow indexing using British benthic macroinvertebrates: a
 framework for setting hydroecological objectives. *Regulated Rivers:
 Research and Management* **15**, 543-574 and the PSI index in [Extence
